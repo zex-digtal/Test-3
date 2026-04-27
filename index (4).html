@@ -1,0 +1,1831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Zex Digital - AI Website & WhatsApp Bot Services</title>
+<meta name="description" content="Zex Digital provides AI website building, WhatsApp automation bots, and digital solutions for businesses." />
+<meta name="keywords" content="Zex Digital, AI website builder, WhatsApp bot India, automation services" />
+<meta name="author" content="Zex Digital" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23000'/%3E%3Cpolygon points='40,20 70,20 50,50 70,50 40,80 50,55 30,55' fill='%23fff'/%3E%3C/svg%3E" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --white:#FFFFFF; --black:#000000;
+    --text-primary:#000000; --text-secondary:#666666; --text-muted:#888888;
+    --border:#EAEAEA; --divider:#F3F3F3; --section-alt:#F9F9F9;
+    --btn-bg:#000000; --btn-text:#FFFFFF; --btn-hover:#1a1a1a;
+    --admin-bg:#0f0f1a; --admin-sidebar:#1a1a2e;
+    --bg:#ffffff; --card:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text-primary);-webkit-font-smoothing:antialiased;line-height:1.5}
+  body.dark-mode{--bg:#0d0d0d;--card:#111111;--text-primary:#ffffff;--text-secondary:#bbbbbb;--text-muted:#888888;--border:#222222;--divider:#1a1a1a;--section-alt:#111111;--white:#0d0d0d}
+  body.dark-mode .navbar{background:rgba(15,15,15,0.92);border-color:#222}
+  body.dark-mode .sidebar{background:#111;border-color:#222}
+  body.dark-mode .btn-secondary{color:#fff;border-color:#333}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+  input,textarea,select{font-family:inherit}
+  i[data-lucide]{stroke-width:1.5;width:20px;height:20px;flex-shrink:0}
+  .container{max-width:1200px;margin:0 auto;padding:0 clamp(1rem,5vw,4rem)}
+  .section{padding:6rem 0}
+  .section-alt{background:var(--section-alt)}
+  .label{font-size:.8rem;font-weight:500;color:var(--text-muted);letter-spacing:.04em;text-transform:uppercase}
+  .section-title{font-size:clamp(1.75rem,3vw,2.5rem);font-weight:700;letter-spacing:-.02em;color:var(--text-primary)}
+  .section-sub{color:var(--text-secondary);font-size:1rem;line-height:1.7;max-width:650px;margin:1rem auto 0;text-align:center}
+  .center{text-align:center}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;font-size:.9rem;font-weight:600;padding:.7rem 1.4rem;border-radius:9999px;transition:all .25s cubic-bezier(.25,.46,.45,.94);cursor:pointer;border:1.5px solid transparent;white-space:nowrap}
+  .btn-primary{background:var(--btn-bg);color:var(--btn-text)}
+  .btn-primary:hover{background:var(--btn-hover);transform:scale(1.04)}
+  .btn-secondary{background:transparent;color:var(--text-primary);border-color:var(--border)}
+  .btn-secondary:hover{border-color:var(--text-primary);transform:translateY(-2px)}
+  .pill{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--border);border-radius:9999px;padding:.35rem 1rem;font-size:.85rem;color:var(--text-secondary);background:transparent}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:transform .25s cubic-bezier(.25,.46,.45,.94),box-shadow .25s ease}
+  .card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,.07)}
+
+  /* Navbar */
+  .navbar{position:fixed;top:1rem;left:50%;transform:translateX(-50%);width:calc(100% - 2rem);max-width:1100px;height:58px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:9999px;box-shadow:0 4px 24px rgba(0,0,0,.06);z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;transition:box-shadow .25s ease}
+  .navbar-left{display:flex;align-items:center;gap:.6rem}
+  .nav-hamburger{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:8px;color:var(--text-primary)}
+  .nav-hamburger:hover{background:var(--divider)}
+  .logo-box{width:36px;height:36px;background:#000;color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center}
+  .logo-box i{width:20px;height:20px;stroke:#fff;fill:#fff}
+  .nav-brand{font-weight:700;font-size:1rem;color:var(--text-primary)}
+  .nav-center{display:none;align-items:center;gap:1.5rem}
+  .nav-link{font-size:.9rem;color:var(--text-secondary);font-weight:500;transition:color .2s}
+  .nav-link.active,.nav-link:hover{color:var(--text-primary);font-weight:600}
+  .nav-right{display:flex;align-items:center;gap:.5rem}
+  .nav-avatar{width:34px;height:34px;border-radius:50%;cursor:pointer;border:1.5px solid var(--border);object-fit:cover}
+  @media(min-width:768px){.nav-center{display:flex}}
+
+  /* Sidebar */
+  .sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:1999;opacity:0;pointer-events:none;transition:opacity .3s ease}
+  .sidebar-overlay.open{opacity:1;pointer-events:auto}
+  .sidebar{position:fixed;left:-300px;top:0;width:280px;height:100vh;background:#fff;border-right:1px solid var(--border);z-index:2000;padding:2rem 1.5rem;transition:left .3s cubic-bezier(.25,.46,.45,.94);overflow-y:auto;display:flex;flex-direction:column;gap:.5rem}
+  .sidebar.open{left:0}
+  .sidebar-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
+  .sidebar-divider{height:1px;background:var(--border);margin:.75rem 0}
+  .sidebar-link{display:flex;align-items:center;gap:.75rem;padding:.75rem .5rem;border-radius:8px;color:var(--text-primary);font-size:.95rem;font-weight:500;cursor:pointer;transition:background .2s}
+  .sidebar-link:hover{background:var(--divider)}
+  .sidebar-link i{width:18px;height:18px}
+  .sidebar-close{width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:8px}
+  .sidebar-close:hover{background:var(--divider)}
+
+  /* Pages */
+  .page{display:none;min-height:100vh;padding-top:100px;padding-bottom:4rem}
+  .page.active{display:block}
+  body.admin-open .page{padding-top:0}
+
+  /* Hero */
+  #page-home .hero{min-height:calc(100vh - 80px);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:2rem clamp(1rem,5vw,4rem)}
+  .hero-badge{margin-bottom:1.5rem}
+  .hero-title{font-size:clamp(2.5rem,5vw,5rem);font-weight:800;letter-spacing:-.03em;line-height:1.05;max-width:900px;color:var(--text-primary)}
+  .hero-sub{font-size:1.25rem;color:var(--text-secondary);font-weight:400;margin-top:1rem}
+  .hero-desc{font-size:1rem;color:var(--text-muted);max-width:600px;line-height:1.7;margin-top:1.25rem}
+  .hero-cta{display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap;justify-content:center}
+  @media(max-width:600px){.hero-cta{flex-direction:column;width:100%;max-width:300px}.hero-cta .btn{width:100%;justify-content:center}}
+
+  /* Grids */
+  .grid-4{display:grid;grid-template-columns:1fr;gap:1.5rem;margin-top:3rem}
+  @media(min-width:768px){.grid-4{grid-template-columns:repeat(2,1fr)}}
+  .icon-circle{width:52px;height:52px;border-radius:50%;background:var(--divider);display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+  .icon-circle i{width:22px;height:22px}
+  .card-title{font-size:1.125rem;font-weight:600;margin-bottom:.5rem;color:var(--text-primary)}
+  .card-text{color:var(--text-secondary);font-size:.95rem;line-height:1.6}
+
+  /* Why us */
+  .two-col{display:grid;grid-template-columns:1fr;gap:3rem;align-items:start}
+  @media(min-width:768px){.two-col{grid-template-columns:1fr 1fr}}
+  .why-list{list-style:none;display:flex;flex-direction:column}
+  .why-list li{display:flex;align-items:center;gap:.75rem;padding:1rem 0;border-bottom:1px solid var(--border);color:var(--text-primary);font-size:.95rem}
+  .why-list li:last-child{border-bottom:none}
+  .why-list li i{color:var(--text-primary);width:18px;height:18px}
+
+  /* How it works */
+  .steps{display:flex;flex-direction:column;gap:1.5rem;margin-top:3rem;align-items:center}
+  @media(min-width:768px){.steps{flex-direction:row;justify-content:center;gap:1rem;align-items:stretch}}
+  .step-card{text-align:center;flex:1;max-width:320px}
+  .step-num{width:48px;height:48px;background:#000;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;margin:0 auto 1rem}
+  .step-arrow{display:none;color:#CCC;align-self:center}
+  @media(min-width:768px){.step-arrow{display:flex}}
+
+  /* Services */
+  .services-2col{display:grid;grid-template-columns:1fr;gap:3rem;margin-top:3rem}
+  @media(min-width:1024px){.services-2col{grid-template-columns:1fr 1fr}}
+  .service-col-head{display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem;font-size:1.25rem;font-weight:700;text-transform:capitalize}
+  .service-col-desc{color:var(--text-secondary);margin-bottom:1.5rem}
+  .service-cards{display:flex;flex-direction:column;gap:1.25rem}
+  .service-card{position:relative}
+  .service-card.popular{box-shadow:0 16px 50px rgba(0,0,0,.1);border-color:#000}
+  .service-badge{position:absolute;top:-12px;right:1.5rem;background:var(--card);border:1px solid var(--border);border-radius:9999px;padding:.25rem .8rem;font-size:.75rem;font-weight:500;color:var(--text-secondary)}
+  .service-badge.dark{background:#000;color:#fff;border-color:#000;font-weight:600}
+  .service-price{display:flex;align-items:baseline;gap:.4rem;margin:1rem 0;flex-wrap:wrap}
+  .service-price-from{font-size:.85rem;color:var(--text-muted)}
+  .service-price-num{font-size:2rem;font-weight:800;letter-spacing:-.02em}
+  .service-features{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin:1rem 0 1.5rem}
+  .service-features li{display:flex;align-items:center;gap:.6rem;font-size:.9rem;color:var(--text-secondary)}
+  .service-features li i{width:16px;height:16px;color:#000;flex-shrink:0}
+  body.dark-mode .service-features li i{color:#fff}
+  .service-card .btn-primary, .service-card .btn-secondary{width:100%;justify-content:center}
+  .category-block{margin-bottom:3rem}
+  .category-title-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+  .category-desc{color:var(--text-muted);font-size:.95rem;margin-bottom:1.5rem}
+
+  /* Team */
+  .team-grid{display:grid;grid-template-columns:1fr;gap:2rem;margin-top:3rem;justify-content:center;max-width:1100px;margin-left:auto;margin-right:auto}
+  @media(min-width:768px){.team-grid{grid-template-columns:1fr 1fr}}
+  .team-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2.5rem 2rem;text-align:center;transition:transform .3s ease,box-shadow .3s ease}
+  .team-card:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(0,0,0,.08)}
+  .team-avatar{width:100px;height:100px;border-radius:50%;border:3px solid var(--border);margin:0 auto 1rem;object-fit:cover}
+  .team-name{font-size:1.25rem;font-weight:700;margin-bottom:.25rem}
+  .team-role{font-size:.875rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:1rem}
+  .team-divider{height:1px;background:var(--border);margin:1rem 0}
+  .team-desc{color:var(--text-secondary);font-size:.95rem;line-height:1.6;margin-bottom:1.25rem}
+  .skill-pills{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center}
+  .skill-pill{background:var(--divider);color:var(--text-primary);padding:.3rem .8rem;border-radius:999px;font-size:.75rem;font-weight:600}
+
+  /* Reviews */
+  .reviews-grid{display:grid;grid-template-columns:1fr;gap:1.5rem;margin-top:3rem}
+  @media(min-width:768px){.reviews-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1024px){.reviews-grid{grid-template-columns:repeat(3,1fr)}}
+  .review-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem;display:flex;flex-direction:column;gap:1rem}
+  .review-top{display:flex;align-items:center;gap:.75rem}
+  .review-avatar{width:40px;height:40px;border-radius:50%;object-fit:cover}
+  .review-name{font-weight:600;font-size:.95rem}
+  .review-date{font-size:.75rem;color:var(--text-muted)}
+  .review-stars{color:#FFB800;display:flex;gap:2px}
+  .review-stars svg{width:14px;height:14px;fill:currentColor;stroke:currentColor}
+  .review-text{font-size:.9rem;line-height:1.6;color:var(--text-secondary)}
+
+  /* Review Form */
+  .review-form-card{max-width:600px;margin:3rem auto 0}
+  .star-selector{display:flex;gap:.5rem;margin-bottom:1rem;justify-content:center}
+  .star-selector .star-btn{width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;background:transparent;border:none;padding:0}
+  .star-selector svg{width:32px;height:32px;color:var(--border);transition:color .2s, fill .2s;fill:none;stroke:currentColor;stroke-width:1.6}
+  .star-selector .star-btn.hovered svg, .star-selector .star-btn.selected svg{color:#FFB800;fill:#FFB800;stroke:#FFB800}
+  .form-input{width:100%;padding:.8rem 1rem;border-radius:12px;border:1.5px solid var(--border);background:var(--card);color:var(--text-primary);font-size:.95rem;transition:border-color .2s}
+  .form-input:focus{outline:none;border-color:#000}
+  .form-error{color:#dc2626;font-size:.85rem;margin-top:.5rem;text-align:center}
+
+  /* Projects */
+  .projects-scroll{display:flex;gap:1.5rem;overflow-x:auto;padding:1rem 0 2.5rem;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .projects-scroll::-webkit-scrollbar{display:none}
+  .project-card{flex:0 0 300px;scroll-snap-align:start;border-radius:20px;overflow:hidden;border:1px solid var(--border);background:var(--card)}
+  .project-img-wrap{aspect-ratio:16/10;background:var(--divider);overflow:hidden;position:relative}
+  .project-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .project-card:hover .project-img-wrap img{transform:scale(1.08)}
+  .project-info{padding:1.25rem}
+  .project-name{font-weight:700;font-size:1.1rem;margin-bottom:.25rem}
+  .project-tech{font-size:.85rem;color:var(--text-muted);font-weight:500}
+
+  /* Footer */
+  footer{padding:6rem 0 3rem;border-top:1px solid var(--border)}
+  .footer-grid{display:grid;grid-template-columns:1fr;gap:3rem;margin-bottom:4rem}
+  @media(min-width:768px){.footer-grid{grid-template-columns:2fr 1fr 1fr 1fr}}
+  .footer-brand{display:flex;flex-direction:column;gap:1.25rem}
+  .footer-logo{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:1.25rem}
+  .footer-desc{color:var(--text-secondary);font-size:.95rem;line-height:1.6;max-width:300px}
+  .footer-social{display:flex;gap:.75rem}
+  .social-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all .2s}
+  .social-btn:hover{background:#000;color:#fff;border-color:#000;transform:translateY(-3px)}
+  .footer-heading{font-size:.85rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:1.5rem}
+  .footer-links{display:flex;flex-direction:column;gap:.85rem}
+  .footer-links a{font-size:.95rem;color:var(--text-secondary);transition:color .2s}
+  .footer-links a:hover{color:var(--text-primary)}
+  .footer-bottom{padding-top:2rem;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:1rem;align-items:center;text-align:center;font-size:.85rem;color:var(--text-muted)}
+  @media(min-width:768px){.footer-bottom{flex-direction:row;justify-content:space-between;text-align:left}}
+  .footer-made{display:flex;align-items:center;gap:.4rem}
+  .footer-made i{width:14px;height:14px;fill:#dc2626;color:#dc2626}
+
+  /* Floating chat */
+  .float-chat{position:fixed;bottom:1.5rem;right:1.5rem;width:56px;height:56px;border-radius:50%;background:#16a34a;color:#fff;display:none;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.2);z-index:900;transition:transform .2s}
+  .float-chat:hover{transform:scale(1.08)}
+  .float-chat i{width:24px;height:24px;color:#fff}
+
+  /* Admin Modal */
+  .modal{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);z-index:3000;display:none;align-items:center;justify-content:center;padding:1rem}
+  .modal.open{display:flex}
+  .modal-content{background:var(--card);border-radius:24px;width:100%;max-width:400px;padding:2.5rem;position:relative;box-shadow:0 24px 60px rgba(0,0,0,.2)}
+  .modal-close{position:absolute;top:1.25rem;right:1.25rem;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:var(--divider)}
+
+  /* Admin Layout */
+  body.admin-open{background:var(--admin-bg);color:#fff;overflow-x:hidden}
+  body.admin-open .navbar, body.admin-open footer, body.admin-open .sidebar-overlay, body.admin-open .float-chat{display:none}
+  .admin-wrapper{display:none;min-height:100vh}
+  body.admin-open .admin-wrapper{display:flex}
+  .admin-sidebar{width:260px;background:var(--admin-sidebar);border-right:1px solid rgba(255,255,255,.05);display:flex;flex-direction:column;padding:1.5rem;position:fixed;height:100vh;z-index:100}
+  .admin-nav-item{display:flex;align-items:center;gap:.75rem;padding:.85rem 1rem;border-radius:10px;color:rgba(255,255,255,.6);font-size:.9rem;font-weight:500;margin-bottom:.25rem;transition:all .2s;cursor:pointer}
+  .admin-nav-item:hover{background:rgba(255,255,255,.05);color:#fff}
+  .admin-nav-item.active{background:#fff;color:#000}
+  .admin-main{flex:1;margin-left:260px;padding:2.5rem;max-width:1200px}
+  @media(max-width:1024px){.admin-sidebar{left:-260px;transition:left .3s ease}.admin-sidebar.open{left:0}.admin-main{margin-left:0;padding:1.5rem}}
+  .admin-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:2.5rem}
+  .admin-panel{display:none}.admin-panel.active{display:block}
+  .admin-section{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem}
+  .admin-field{margin-bottom:1.25rem}
+  .admin-field label{display:block;font-size:.8rem;color:rgba(255,255,255,.5);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.05em}
+  .admin-field input, .admin-field textarea, .admin-field select{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:.75rem;color:#fff;font-size:.95rem;font-family:inherit}
+  .admin-field input[type=checkbox]{width:auto;display:inline-block;margin-right:.5rem}
+  .admin-field input[type=color]{height:42px;padding:.25rem;cursor:pointer}
+  .admin-save-btn{background:#fff;color:#000;padding:.6rem 1.25rem;border-radius:8px;font-weight:600;display:inline-flex;align-items:center;gap:.5rem;font-size:.9rem;cursor:pointer}
+  .admin-save-btn:hover{opacity:.9}
+  .admin-icon-btn{width:32px;height:32px;border-radius:6px;background:rgba(255,255,255,.05);display:inline-flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);cursor:pointer;flex-shrink:0}
+  .admin-icon-btn:hover{background:rgba(255,255,255,.1);color:#fff}
+  .admin-table{width:100%;border-collapse:collapse}
+  .admin-table th{text-align:left;padding:1rem;border-bottom:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);font-size:.8rem;text-transform:uppercase}
+  .admin-table td{padding:1rem;border-bottom:1px solid rgba(255,255,255,.05);font-size:.9rem}
+  .admin-saved{display:inline-block;margin-left:.75rem;color:#16a34a;font-size:.85rem;font-weight:600}
+  .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-bottom:2.5rem}
+  .stat-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);padding:1.5rem;border-radius:16px}
+  .stat-num{font-size:2rem;font-weight:800;margin-bottom:.25rem}
+  .stat-label{color:rgba(255,255,255,.5);font-size:.85rem}
+  .toggle-switch{width:44px;height:24px;background:rgba(255,255,255,.1);border-radius:99px;position:relative;cursor:pointer;transition:background .3s}
+  .toggle-switch::after{content:'';position:absolute;top:2px;left:2px;width:20px;height:20px;background:#fff;border-radius:50%;transition:left .3s}
+  .toggle-switch.on{background:#16a34a}.toggle-switch.on::after{left:22px}
+  .shake{animation:shake .4s ease-in-out}
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+  .anim-hidden{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.25,.46,.45,.94)}
+  .anim-visible{opacity:1;transform:translateY(0)}
+  .booking-row{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:1.25rem;margin-bottom:1rem}
+  .status-pill{padding:.2rem .6rem;border-radius:99px;font-size:.7rem;font-weight:700;text-transform:uppercase}
+  .status-pending{background:#ca8a04;color:#fff}.status-confirmed{background:#16a34a;color:#fff}.status-rejected{background:#dc2626;color:#fff}
+  .admin-feature-row{display:flex;gap:.5rem;margin-bottom:.5rem;align-items:center}
+  .admin-feature-row input{flex:1}
+  .admin-mobile-toggle{display:none;position:fixed;top:1rem;left:1rem;z-index:200;background:rgba(255,255,255,.1);width:42px;height:42px;border-radius:8px;align-items:center;justify-content:center;color:#fff}
+  body.admin-open .admin-mobile-toggle{display:flex}
+  @media(min-width:1025px){body.admin-open .admin-mobile-toggle{display:none}}
+  .terms-content p{margin-bottom:1.5rem}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+  <div class="navbar-left">
+    <button class="nav-hamburger" onclick="toggleSidebar(true)" aria-label="Open menu"><i data-lucide="menu"></i></button>
+    <a href="#home" class="logo-box" id="brand-logo-wrap"><i data-lucide="zap"></i></a>
+    <span class="nav-brand">ZEX Digital</span>
+  </div>
+  <div class="nav-center">
+    <a href="#home" class="nav-link" data-nav="home">Home</a>
+    <a href="#services" class="nav-link" data-nav="services">Services</a>
+    <a href="#projects" class="nav-link" data-nav="projects">Projects</a>
+    <a href="#reviews" class="nav-link" data-nav="reviews">Reviews</a>
+    <a href="#team" class="nav-link" data-nav="team">Team</a>
+  </div>
+  <div class="nav-right" id="nav-right">
+    <a href="#login" class="nav-link" id="nav-login">Login</a>
+    <a href="#signup" class="btn btn-primary" id="nav-signup">Get Started</a>
+  </div>
+</nav>
+
+<!-- Sidebar Overlay -->
+<div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar(false)"></div>
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-top">
+    <div class="nav-brand">ZEX Digital</div>
+    <button class="sidebar-close" onclick="toggleSidebar(false)" aria-label="Close menu"><i data-lucide="x"></i></button>
+  </div>
+  <div class="sidebar-divider"></div>
+  <a class="sidebar-link" href="#home" onclick="toggleSidebar(false)"><i data-lucide="home"></i>Home</a>
+  <a class="sidebar-link" href="#services" onclick="toggleSidebar(false)"><i data-lucide="layout"></i>Services</a>
+  <a class="sidebar-link" href="#projects" onclick="toggleSidebar(false)"><i data-lucide="briefcase"></i>Projects</a>
+  <a class="sidebar-link" href="#reviews" onclick="toggleSidebar(false)"><i data-lucide="star"></i>Reviews</a>
+  <a class="sidebar-link" href="#team" onclick="toggleSidebar(false)"><i data-lucide="users"></i>Team</a>
+  <a class="sidebar-link" href="#contact" onclick="toggleSidebar(false)"><i data-lucide="mail"></i>Contact</a>
+  <a class="sidebar-link" href="#terms" onclick="toggleSidebar(false)"><i data-lucide="file-text"></i>Terms &amp; Conditions</a>
+  <div class="sidebar-divider"></div>
+  <div id="sidebar-auth"></div>
+  <div class="sidebar-divider"></div>
+  <a class="sidebar-link" href="javascript:void(0)" onclick="openAdminModal();toggleSidebar(false)"><i data-lucide="lock"></i>Admin Access</a>
+</div>
+
+<!-- Home Page -->
+<main id="page-home" class="page">
+  <section class="hero">
+    <div class="hero-badge anim-hero"><span class="pill"><i data-lucide="sparkles"></i> <span id="hero-badge-text">Intelligent Digital Solutions</span></span></div>
+    <h1 class="hero-title anim-hero" id="hero-headline">Building Brands with Intelligence</h1>
+    <p class="hero-sub anim-hero" id="hero-subheadline">AI Websites, WhatsApp Bots &amp; Custom Apps</p>
+    <p class="hero-desc anim-hero" id="hero-description">We help businesses scale with cutting-edge automation and premium web experiences. From local shops to growing enterprises, we build what matters.</p>
+    <div class="hero-cta anim-hero">
+      <a href="#services" class="btn btn-primary">View Services <i data-lucide="arrow-right"></i></a>
+      <a href="#projects" class="btn btn-secondary">Our Work</a>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="center anim-hidden">
+        <div class="label">What we do</div>
+        <h2 class="section-title">End-to-end Digital Excellence</h2>
+      </div>
+      <div class="grid-4">
+        <div class="card anim-hidden">
+          <div class="icon-circle"><i data-lucide="globe"></i></div>
+          <h3 class="card-title" data-about="card1-title">AI Web Builder</h3>
+          <p class="card-text" data-about="card1-text">Beautiful, high-converting websites built with AI-optimized workflows for speed and precision.</p>
+        </div>
+        <div class="card anim-hidden">
+          <div class="icon-circle"><i data-lucide="message-square"></i></div>
+          <h3 class="card-title" data-about="card2-title">WhatsApp Bots</h3>
+          <p class="card-text" data-about="card2-text">Automate your customer support and sales 24/7 with our custom-trained WhatsApp AI agents.</p>
+        </div>
+        <div class="card anim-hidden">
+          <div class="icon-circle"><i data-lucide="smartphone"></i></div>
+          <h3 class="card-title" data-about="card3-title">Offline Apps</h3>
+          <p class="card-text" data-about="card3-text">Robust desktop and mobile applications that work without internet, perfect for local management.</p>
+        </div>
+        <div class="card anim-hidden">
+          <div class="icon-circle"><i data-lucide="zap"></i></div>
+          <h3 class="card-title" data-about="card4-title">Automation</h3>
+          <p class="card-text" data-about="card4-text">Streamline repetitive tasks and save hundreds of hours every month with our custom scripts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="two-col">
+        <div class="anim-hidden">
+          <div class="label">Why choose us</div>
+          <h2 class="section-title" style="margin-bottom:1.5rem">Why ZEX Digital stands out from the rest</h2>
+          <p class="card-text" style="font-size:1.1rem;margin-bottom:2rem">We don't just build; we partner with you to ensure your digital presence actually drives results.</p>
+          <ul class="why-list" id="why-list">
+            <li><i data-lucide="check-circle"></i> <span>Custom AI Integration for every project</span></li>
+            <li><i data-lucide="check-circle"></i> <span>Blazing fast delivery (3-7 days)</span></li>
+            <li><i data-lucide="check-circle"></i> <span>Affordable pricing for Indian businesses</span></li>
+            <li><i data-lucide="check-circle"></i> <span>Lifetime support and maintenance</span></li>
+            <li><i data-lucide="check-circle"></i> <span>Focus on conversion and UI/UX</span></li>
+            <li><i data-lucide="check-circle"></i> <span>Secure and scalable infrastructure</span></li>
+            <li><i data-lucide="check-circle"></i> <span>Transparent communication always</span></li>
+          </ul>
+        </div>
+        <div class="card anim-hidden" style="background:#000;color:#fff;padding:3rem">
+          <h3 style="font-size:1.75rem;font-weight:700;margin-bottom:1rem">Ready to start?</h3>
+          <p style="opacity:.8;margin-bottom:2rem;line-height:1.7">Join 50+ businesses that have transformed their digital workflow with ZEX Digital.</p>
+          <a href="#contact" class="btn btn-primary" style="background:#fff;color:#000">Book a Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="center anim-hidden">
+        <div class="label">Our Process</div>
+        <h2 class="section-title">How it works</h2>
+      </div>
+      <div class="steps">
+        <div class="step-card anim-hidden">
+          <div class="step-num">1</div>
+          <h3 class="card-title" data-how="step1-title">Consultation</h3>
+          <p class="card-text" data-how="step1-text">We discuss your goals and choose the best technology stack for your specific needs.</p>
+        </div>
+        <div class="step-arrow anim-hidden"><i data-lucide="chevron-right"></i></div>
+        <div class="step-card anim-hidden">
+          <div class="step-num">2</div>
+          <h3 class="card-title" data-how="step2-title">Development</h3>
+          <p class="card-text" data-how="step2-text">Our team builds your solution with regular updates and feedback loops.</p>
+        </div>
+        <div class="step-arrow anim-hidden"><i data-lucide="chevron-right"></i></div>
+        <div class="step-card anim-hidden">
+          <div class="step-num">3</div>
+          <h3 class="card-title" data-how="step3-title">Launch</h3>
+          <p class="card-text" data-how="step3-text">We deploy your project and provide the necessary training to manage it effectively.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Services Page -->
+<main id="page-services" class="page">
+  <div class="container">
+    <div class="center anim-hidden">
+      <div class="label">Pricing &amp; Plans</div>
+      <h1 class="section-title">Choose the perfect plan</h1>
+      <p class="section-sub">Transparent pricing with no hidden costs. Pick a category below to explore the available options.</p>
+    </div>
+    <div id="services-container" style="margin-top:3rem"></div>
+  </div>
+</main>
+
+<!-- Team Page -->
+<main id="page-team" class="page">
+  <div class="container">
+    <div class="center anim-hidden">
+      <div class="label">Our Experts</div>
+      <h1 class="section-title">Meet the Team</h1>
+      <p class="section-sub">The creative minds behind ZEX Digital, dedicated to bringing your vision to life.</p>
+    </div>
+    <div class="team-grid" id="team-grid"></div>
+  </div>
+</main>
+
+<!-- Reviews Page -->
+<main id="page-reviews" class="page">
+  <div class="container">
+    <div class="center anim-hidden">
+      <div class="label">Testimonials</div>
+      <h1 class="section-title">What our clients say</h1>
+      <p class="section-sub">Real feedback from businesses we've helped grow.</p>
+    </div>
+    <div class="reviews-grid" id="reviews-grid"></div>
+    <div class="review-form-card card anim-hidden" id="review-form-wrap"></div>
+  </div>
+</main>
+
+<!-- Projects Page -->
+<main id="page-projects" class="page">
+  <div class="container">
+    <div class="center anim-hidden">
+      <div class="label">Portfolio</div>
+      <h1 class="section-title">Our Latest Work</h1>
+      <p class="section-sub">Explore some of the projects we've delivered recently.</p>
+    </div>
+    <div class="projects-scroll" id="projects-scroll"></div>
+    <div class="center" style="margin-top:3rem">
+      <p class="card-text">Want to see more? <a href="#contact" style="font-weight:600;text-decoration:underline">Contact us</a> for a full portfolio.</p>
+    </div>
+  </div>
+</main>
+
+<!-- Contact Page -->
+<main id="page-contact" class="page">
+  <div class="container">
+    <div class="center anim-hidden">
+      <div class="label">Get in touch</div>
+      <h1 class="section-title">Let's build something great</h1>
+    </div>
+    <div class="two-col" style="margin-top:4rem">
+      <div class="anim-hidden">
+        <h3 class="card-title">Contact Information</h3>
+        <p class="card-text" style="margin-bottom:2rem">Have questions? We're here to help you navigate your digital journey.</p>
+        <div style="display:flex;flex-direction:column;gap:1.5rem">
+          <div style="display:flex;gap:1rem">
+            <div class="icon-circle" style="margin:0"><i data-lucide="mail"></i></div>
+            <div><div style="font-weight:600">Email us</div><div class="card-text">zexdigital@gmail.com</div></div>
+          </div>
+          <div style="display:flex;gap:1rem">
+            <div class="icon-circle" style="margin:0"><i data-lucide="map-pin"></i></div>
+            <div><div style="font-weight:600">Location</div><div class="card-text" id="contact-loc">Kalka, Himachal Pradesh, India</div></div>
+          </div>
+          <div style="display:flex;gap:1rem">
+            <div class="icon-circle" style="margin:0"><i data-lucide="message-circle"></i></div>
+            <div><div style="font-weight:600">WhatsApp</div><div class="card-text">Available 10 AM - 8 PM IST</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="card anim-hidden" id="contact-form-card">
+        <div id="booking-form-wrap">
+          <div class="admin-field"><label>Your Name</label><input class="form-input" id="bk-name" placeholder="John Doe"/></div>
+          <div class="admin-field"><label>Email Address</label><input class="form-input" id="bk-email" type="email" placeholder="john@example.com"/></div>
+          <div class="admin-field"><label>Phone Number</label><input class="form-input" id="bk-phone" placeholder="+91 XXXXX XXXXX"/></div>
+          <div class="admin-field"><label>Service Interested In</label>
+            <select class="form-input" id="bk-service">
+              <option>AI Website Builder</option>
+              <option>WhatsApp Bot</option>
+              <option>Offline App</option>
+              <option>Custom Automation</option>
+            </select>
+          </div>
+          <div class="admin-field"><label>Message</label><textarea class="form-input" id="bk-msg" style="min-height:100px" placeholder="Tell us about your project..."></textarea></div>
+          <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="submitBooking()">Send Message</button>
+          <div id="bk-success" style="display:none;color:#16a34a;margin-top:1rem;text-align:center;font-weight:600">Message sent! We will contact you soon.</div>
+          <div id="bk-error" style="display:none;color:#dc2626;margin-top:1rem;text-align:center">Please fill all fields.</div>
+        </div>
+        <div id="external-booking-wrap" style="display:none;text-align:center">
+          <h3 class="card-title">Ready to Book?</h3>
+          <p class="card-text" style="margin-bottom:1.5rem">Click below to visit our official booking page.</p>
+          <a href="#" id="external-booking-link" target="_blank" rel="noopener" class="btn btn-primary">Book Now <i data-lucide="external-link"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Terms Page -->
+<main id="page-terms" class="page">
+  <div class="container">
+    <h1 class="section-title">Terms &amp; Conditions</h1>
+    <div id="terms-content" class="terms-content" style="margin-top:2rem;line-height:1.8;color:var(--text-secondary)"></div>
+  </div>
+</main>
+
+<!-- Login Page -->
+<main id="page-login" class="page">
+  <div class="container">
+    <div class="card" style="max-width:400px;margin:0 auto">
+      <h2 class="center" style="margin-bottom:1.5rem">Welcome Back</h2>
+      <div class="admin-field"><label>Email</label><input id="login-email" type="email" class="form-input"/></div>
+      <div class="admin-field"><label>Password</label>
+        <div style="position:relative"><input id="login-pwd" type="password" class="form-input"/><button onclick="togglePwd('login-pwd',this)" style="position:absolute;right:1rem;top:50%;transform:translateY(-50%);opacity:.5" aria-label="Toggle password"><i data-lucide="eye"></i></button></div>
+      </div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="doLogin()">Login</button>
+      <div id="login-error" class="form-error"></div>
+      <div class="center" style="margin-top:1rem;font-size:.85rem"><a href="javascript:void(0)" onclick="doForgotPassword()" id="forgot-pwd-link" style="color:var(--text-muted);display:none">Forgot password?</a></div>
+      <div class="center" style="margin-top:1.5rem;font-size:.9rem;color:var(--text-muted)">Don't have an account? <a href="#signup" style="color:var(--text-primary);font-weight:600">Sign Up</a></div>
+      <div id="social-login-wrap" style="margin-top:1.5rem;display:none">
+        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem"><div style="flex:1;height:1px;background:var(--border)"></div><span style="font-size:.75rem;color:var(--text-muted);text-transform:uppercase">or continue with</span><div style="flex:1;height:1px;background:var(--border)"></div></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem">
+          <button class="btn btn-secondary" id="btn-google-login" style="justify-content:center;padding:.6rem" onclick="loginWith('google')"><svg style="width:18px;height:18px" viewBox="0 0 24 24"><path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="currentColor" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg> Google</button>
+          <button class="btn btn-secondary" id="btn-github-login" style="justify-content:center;padding:.6rem" onclick="loginWith('github')"><i data-lucide="github" style="width:18px;height:18px"></i> GitHub</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Signup Page -->
+<main id="page-signup" class="page">
+  <div class="container">
+    <div class="card" style="max-width:400px;margin:0 auto">
+      <h2 class="center" style="margin-bottom:1.5rem">Create Account</h2>
+      <div class="admin-field"><label>Full Name</label><input id="sig-name" class="form-input"/></div>
+      <div class="admin-field"><label>Email</label><input id="sig-email" type="email" class="form-input"/></div>
+      <div class="admin-field"><label>Password</label>
+        <div style="position:relative"><input id="sig-pwd" type="password" class="form-input"/><button onclick="togglePwd('sig-pwd',this)" style="position:absolute;right:1rem;top:50%;transform:translateY(-50%);opacity:.5" aria-label="Toggle password"><i data-lucide="eye"></i></button></div>
+      </div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="doSignup()">Sign Up</button>
+      <div id="sig-error" class="form-error"></div>
+      <div class="center" style="margin-top:1.5rem;font-size:.9rem;color:var(--text-muted)">Already have an account? <a href="#login" style="color:var(--text-primary);font-weight:600">Login</a></div>
+    </div>
+  </div>
+</main>
+
+<!-- Profile Page -->
+<main id="page-profile" class="page">
+  <div class="container">
+    <div class="card" style="max-width:600px;margin:0 auto">
+      <div class="center" style="margin-bottom:2rem">
+        <img id="prof-img" src="" class="team-avatar" style="width:120px;height:120px;margin-bottom:1rem" alt="Profile"/>
+        <h2 id="prof-name">User Name</h2>
+        <p id="prof-email" class="card-text">user@example.com</p>
+      </div>
+      <div class="admin-field"><label>Display Name</label><input id="prof-edit-name" class="form-input"/></div>
+      <div class="admin-field"><label>Profile Photo</label><input type="file" accept="image/*" id="prof-edit-file" class="form-input"/></div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="updateProfile()">Update Profile</button>
+      <div id="prof-success" style="display:none;color:#16a34a;margin-top:1rem;text-align:center">Profile updated!</div>
+      <div class="sidebar-divider" style="margin:2rem 0"></div>
+      <button class="btn btn-secondary" style="width:100%;justify-content:center;color:#dc2626;border-color:#fee2e2" onclick="doLogout()">Logout</button>
+    </div>
+  </div>
+</main>
+
+<!-- Admin Modal -->
+<div class="modal" id="admin-modal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeAdminModal()" aria-label="Close"><i data-lucide="x"></i></button>
+    <h3 class="center" style="margin-bottom:1.5rem">Admin Access</h3>
+    <div class="admin-field"><label>Password</label><input id="admin-pwd" type="password" class="form-input" placeholder="••••••"/></div>
+    <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="checkAdminPwd()">Unlock Panel</button>
+    <div id="admin-pwd-error" class="form-error"></div>
+  </div>
+</div>
+
+<!-- Admin Wrapper -->
+<button class="admin-mobile-toggle" onclick="document.getElementById('admin-sidebar').classList.toggle('open')" aria-label="Toggle admin menu"><i data-lucide="menu"></i></button>
+<div class="admin-wrapper">
+  <div class="admin-sidebar" id="admin-sidebar">
+    <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:2rem;padding:0 .5rem">
+      <div class="logo-box" style="width:32px;height:32px"><i data-lucide="zap" style="width:18px;height:18px"></i></div>
+      <span style="font-weight:800;font-size:1.1rem">Admin Panel</span>
+    </div>
+    <div style="flex:1;overflow-y:auto">
+      <a class="admin-nav admin-nav-item" href="javascript:void(0)" onclick="showAdminPanel('dashboard')" data-panel="dashboard"><i data-lucide="bar-chart-3"></i>Dashboard</a>
+      <a class="admin-nav admin-nav-item" href="javascript:void(0)" onclick="showAdminPanel('content')" data-panel="content"><i data-lucide="edit-3"></i>Site Content</a>
+      <a class="admin-nav admin-nav-item" href="javascript:void(0)" onclick="showAdminPanel('services')" data-panel="services"><i data-lucide="layout"></i>Services</a>
+      <a class="admin-nav admin-nav-item" href="javascript:void(0)" onclick="showAdminPanel('bookings')" data-panel="bookings"><i data-lucide="calendar"></i>Bookings</a>
+      <a class="admin-nav admin-nav-item" href="javascript:void(0)" onclick="showAdminPanel('team')" data-panel="team"><i data-lucide="users"></i>Team</a>
+      <a class="admin-nav admin-nav-item" href="javascript:void(0)" onclick="showAdminPanel('projects')" data-panel="projects"><i data-lucide="briefcase"></i>Projects</a>
+      <a class="admin-nav admin-nav-item" href="javascript:void(0)" onclick="showAdminPanel('reviews')" data-panel="reviews"><i data-lucide="star"></i>Reviews</a>
+      <a class="admin-nav admin-nav-item" href="javascript:void(0)" onclick="showAdminPanel('users')" data-panel="users"><i data-lucide="user"></i>Users</a>
+      <a class="admin-nav admin-nav-item" href="javascript:void(0)" onclick="showAdminPanel('contact')" data-panel="contact"><i data-lucide="phone"></i>Contact</a>
+      <a class="admin-nav admin-nav-item" href="javascript:void(0)" onclick="showAdminPanel('terms')" data-panel="terms"><i data-lucide="file-text"></i>Terms Page</a>
+      <a class="admin-nav admin-nav-item" href="javascript:void(0)" onclick="showAdminPanel('settings')" data-panel="settings"><i data-lucide="settings"></i>Settings</a>
+      <a class="admin-nav admin-nav-item" href="javascript:void(0)" onclick="showAdminPanel('google')" data-panel="google"><i data-lucide="key"></i>Login Methods</a>
+    </div>
+    <div style="padding-top:1rem;border-top:1px solid rgba(255,255,255,.05)">
+      <a class="admin-nav-item" href="javascript:void(0)" onclick="exitAdmin()"><i data-lucide="external-link"></i>View Site</a>
+    </div>
+  </div>
+  <div class="admin-main" id="admin-main"></div>
+</div>
+
+<a class="float-chat" id="float-chat" target="_blank" rel="noopener" href="#" aria-label="Chat"><i data-lucide="message-circle"></i></a>
+
+<footer id="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo"><div class="logo-box" id="footer-logo-wrap"><i data-lucide="zap"></i></div> ZEX Digital</div>
+      <p class="footer-desc" id="footer-desc-text">Premium AI websites and automation solutions for the modern era.</p>
+      <div class="footer-social" id="footer-social"></div>
+    </div>
+    <div>
+      <div class="footer-heading">SERVICES</div>
+      <div class="footer-links"><a href="#services">AI Web Builder</a><a href="#services">WhatsApp Bots</a><a href="#services">Offline Apps</a><a href="#services">Automation</a></div>
+    </div>
+    <div>
+      <div class="footer-heading">COMPANY</div>
+      <div class="footer-links"><a href="#team">Our Team</a><a href="#projects">Portfolio</a><a href="#reviews">Testimonials</a><a href="#contact">Contact</a></div>
+    </div>
+    <div>
+      <div class="footer-heading">LEGAL</div>
+      <div class="footer-links"><a href="#terms">Terms &amp; Conditions</a><a href="#terms">Privacy Policy</a></div>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <div id="footer-copy">© 2025 ZEX Digital. All Rights Reserved.</div>
+    <div class="footer-made">Made in India <i data-lucide="heart"></i></div>
+    <div class="footer-trademark">ZEX Digital™ is a registered brand.</div>
+  </div>
+</footer>
+
+<!-- CDN -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+/* ==========  CONFIG  ========== */
+const firebaseConfig = {
+  apiKey: "AIzaSyBSdLu7c33OYuYwYRp5jEMyeAtTZHnwWDs",
+  authDomain: "zex-service.firebaseapp.com",
+  databaseURL: "https://zex-service-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "zex-service",
+  storageBucket: "zex-service.firebasestorage.app",
+  messagingSenderId: "190735566600",
+  appId: "1:190735566600:web:1b9939eeba8d0d81718ebd"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+const auth = firebase.auth();
+
+const SUPABASE_URL = "https://emkzcqfsdhjbbcrdjqch.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVta3pjcWZzZGhqYmJjcmRqcWNoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY3NDIwNDMsImV4cCI6MjA5MjMxODA0M30.dwmIqCXc4jyBR2ggcDu0N_SsHhK5tfclm_bklnu4-gY";
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const ADMIN_PASSWORD = "241983";
+const STORAGE_BUCKET = "zex-media";
+
+function uploadToBucket(prefix, file){
+  const ext = (file.name.split('.').pop()||'jpg').toLowerCase();
+  const fileName = `${prefix}-${Date.now()}.${ext}`;
+  return supabaseClient.storage.from(STORAGE_BUCKET).upload(fileName, file, {upsert:true})
+    .then(({error})=>{ if(error) throw error;
+      const {data} = supabaseClient.storage.from(STORAGE_BUCKET).getPublicUrl(fileName);
+      return data.publicUrl + '?t=' + Date.now();
+    });
+}
+
+/* ==========  STATE / DEFAULTS  ========== */
+let currentUser = null;
+let cachedSettings = {};
+let cachedSocialLinks = {
+  instagram:"https://instagram.com/zexdigital",
+  whatsapp:"https://wa.me/91XXXXXXXXXX",
+  youtube:"https://youtube.com/@zexdigital",
+  twitter:"https://x.com/zexdigital",
+  linkedin:"https://linkedin.com/company/zexdigital"
+};
+let cachedServices = null;
+let cachedCategories = null;
+let cachedTeam = null;
+let cachedProjects = null;
+let cachedReviews = null;
+let selectedRating = 0;
+let servicesSeeded = false;
+
+const DEFAULT_CATEGORIES = {
+  websites: { label:"Websites", icon:"globe", description:"Tailored websites for every stage of your business growth.", order:0 },
+  apps:     { label:"Offline Apps", icon:"smartphone", description:"Robust offline apps designed for Indian businesses.", order:1 }
+};
+
+const DEFAULT_SERVICES = {
+  websites: {
+    starter:    { name:"Offline Business Website", priceFrom:"Starting at", priceNum:"₹1,000", priceSuffix:"– ₹1,500", badge:"Best for Local Businesses", popular:false, features:["Up to 3 pages","Mobile responsive design","Contact form included","Basic SEO setup","Delivered in 3 to 5 days"], order:0 },
+    growth:     { name:"Online Business Website", priceFrom:"Starting at", priceNum:"₹2,000", priceSuffix:"", badge:"Most Popular", popular:true, features:["Up to 7 pages","Product and service showcase","Advanced contact and inquiry forms","Google Maps integration","SEO optimized","Delivered in 5 to 7 days"], order:1 },
+    premium:    { name:"Premium Custom Website", priceFrom:"Starting at", priceNum:"₹5,000", priceSuffix:"", badge:"Full Custom", popular:false, features:["Unlimited pages","Custom animations and interactions","CMS / content management integration","E-commerce ready","Priority support","Delivered in 7 to 14 days"], order:2 }
+  },
+  apps: {
+    basic:      { name:"Basic Offline App", priceFrom:"", priceNum:"₹1,500", priceSuffix:"– ₹2,500", badge:"Perfect for Solopreneurs", popular:false, features:["Single-purpose application","Simple and clean UI","Windows and Android compatible","Data saved locally on device"], order:0 },
+    business:   { name:"Business Offline App", priceFrom:"Starting at", priceNum:"₹3,500", priceSuffix:"", badge:"Best for Small Teams", popular:false, features:["Multi-module application","Invoice and billing generation","Customer management system","Reports and analytics dashboard"], order:1 },
+    enterprise: { name:"Enterprise Offline App", priceFrom:"Starting at", priceNum:"₹7,000", priceSuffix:"", badge:"Full Power", popular:false, features:["Full custom workflow automation","Multi-user and role management","Barcode and QR scanner support","Data export to PDF and Excel","Priority dedicated support"], order:2 }
+  }
+};
+
+const DEFAULT_TEAM = {
+  paras: { name:"Paras Sharma", role:"Interactive Developer & Animation Lead", description:"Paras leads all visual and interactive development at ZEX Digital. From 2D and 3D animations to full website builds, he brings creative concepts to life with code. He works across multiple languages and tools, ensuring every project is visually exceptional and technically sound.", skills:["HTML/CSS","JavaScript","GSAP","Three.js","Animation","UI Design"], photoURL:null },
+  harshit: { name:"Harshit", role:"Lead Developer", description:"Harshit is the backbone of ZEX Digital's technical infrastructure. He builds everything from backend systems and automation pipelines to AI agents and bots. He also handles app design, ensuring every product is robust, scalable, and production-ready.", skills:["Backend","AI Agents","Automation","App Design","Bots","Databases"], photoURL:null }
+};
+
+const DEFAULT_TERMS = "ZEX Digital provides website development and offline app development services to businesses and individuals across India.\n\nFull payment is collected before the project begins. Refund eligibility depends on the stage of project completion at the time of request.\n\nAll timelines provided are estimates. ZEX Digital is not liable for delays caused by incomplete information or delayed response from the client.\n\nAll designs and code created by ZEX Digital become the property of the client upon receipt of full payment.\n\nUsers must not use the website or services for any illegal, harmful, or fraudulent purpose.\n\nWe collect only the information required to deliver services (name and email). We do not sell or share user data with any third parties.\n\nReach us via WhatsApp or email at zexdigital@gmail.com for any concerns.";
+
+/* ==========  HELPERS  ========== */
+function $(id){return document.getElementById(id)}
+function ic(){ if(window.lucide) lucide.createIcons(); }
+function escapeHtml(s){return (s==null?'':String(s)).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function escapeAttr(s){return escapeHtml(s)}
+function avatarURL(name){return `https://ui-avatars.com/api/?name=${encodeURIComponent(name||'U')}&background=000000&color=ffffff&size=128&bold=true&rounded=true`}
+function fmtDate(d){try{return new Date(d).toLocaleDateString('en-IN',{year:'numeric',month:'short',day:'numeric'})}catch(e){return ''}}
+function arrify(o){if(!o) return []; if(Array.isArray(o)) return o.filter(Boolean); return Object.values(o)}
+function starSVG(filled){
+  const fill = filled ? 'currentColor' : 'none';
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${fill}" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`;
+}
+
+/* ==========  ROUTING  ========== */
+const PAGE_TITLES = {
+  home:"ZEX Digital — Building Brands with Intelligence",
+  services:"Services — ZEX Digital",
+  team:"Team — ZEX Digital",
+  reviews:"Reviews — ZEX Digital",
+  projects:"Projects — ZEX Digital",
+  contact:"Contact — ZEX Digital",
+  login:"Login — ZEX Digital",
+  signup:"Sign Up — ZEX Digital",
+  profile:"My Profile — ZEX Digital",
+  admin:"Admin — ZEX Digital",
+  terms:"Terms & Conditions — ZEX Digital"
+};
+
+function router(){
+  const hash = (window.location.hash || '#home').replace('#','');
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.body.classList.remove('admin-open');
+  const targetId = 'page-' + hash;
+  const target = document.getElementById(targetId);
+  if(!target && hash!=='admin'){ window.location.hash='#home'; return; }
+
+  // auth gates
+  if(hash==='profile' && !currentUser){ window.location.hash='#login'; return; }
+  if((hash==='login' || hash==='signup') && currentUser){ window.location.hash='#profile'; return; }
+  if(hash==='admin'){
+    if(sessionStorage.getItem('adminAccess')!=='true'){ window.location.hash='#home'; return; }
+    document.body.classList.add('admin-open');
+    renderAdminMain();
+    document.title = PAGE_TITLES.admin;
+    return;
+  }
+
+  if(target) target.classList.add('active');
+  document.title = PAGE_TITLES[hash] || 'ZEX Digital';
+  document.querySelectorAll('.nav-link[data-nav]').forEach(l=>l.classList.toggle('active', l.dataset.nav===hash));
+  window.scrollTo({top:0,behavior:'instant'});
+
+  // page-specific renders
+  if(hash==='home') runHeroAnimation();
+  if(hash==='services') renderServices();
+  if(hash==='team') renderTeam();
+  if(hash==='reviews'){ renderReviews(); renderReviewForm(); }
+  if(hash==='projects') renderProjects();
+  if(hash==='profile') renderProfile();
+  if(hash==='terms') renderTerms();
+
+  // observe scroll animations
+  setTimeout(observeAnims, 50);
+  ic();
+}
+window.addEventListener('hashchange', router);
+
+/* ==========  HERO ANIMATION  ========== */
+function runHeroAnimation(){
+  const els = document.querySelectorAll('#page-home .anim-hero');
+  els.forEach((el,i)=>{
+    el.style.opacity=0; el.style.transform='translateY(28px)';
+    setTimeout(()=>{
+      el.style.transition='opacity .6s ease, transform .6s ease';
+      el.style.opacity=1; el.style.transform='translateY(0)';
+    }, i*150);
+  });
+}
+
+/* ==========  INTERSECTION OBSERVER  ========== */
+let ioInstance = null;
+function observeAnims(){
+  if(!ioInstance){
+    ioInstance = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('anim-visible'); ioInstance.unobserve(e.target); } });
+    },{threshold:.15});
+  }
+  document.querySelectorAll('.anim-hidden:not(.anim-visible)').forEach(el=>ioInstance.observe(el));
+}
+
+/* ==========  SIDEBAR  ========== */
+function toggleSidebar(open){
+  $('sidebar').classList.toggle('open', open);
+  $('sidebar-overlay').classList.toggle('open', open);
+}
+
+/* ==========  AUTH STATE  ========== */
+auth.onAuthStateChanged(user=>{
+  currentUser = user;
+  updateNavbarAuthState(user);
+  updateSidebarAuthState(user);
+  const hash = (window.location.hash||'#home').replace('#','');
+  if(hash==='profile'||hash==='reviews'||hash==='login'||hash==='signup') router();
+});
+
+function updateNavbarAuthState(user){
+  const right = $('nav-right');
+  if(user){
+    const photo = user.photoURL || `https://ui-avatars.com/api/?name=${encodeURIComponent(user.displayName||user.email||'U')}&background=000&color=fff&size=64&bold=true&rounded=true`;
+    right.innerHTML = `<img src="${photo}" class="nav-avatar" onclick="location.hash='#profile'" alt="Profile" />`;
+  } else {
+    right.innerHTML = `<a href="#login" class="nav-link" id="nav-login">Login</a>
+      <a href="#signup" class="btn btn-primary" id="nav-signup">Get Started</a>`;
+  }
+  ic();
+}
+function updateSidebarAuthState(user){
+  const wrap = $('sidebar-auth');
+  if(user){
+    wrap.innerHTML = `
+      <a class="sidebar-link" href="#profile" onclick="toggleSidebar(false)"><i data-lucide="user-circle"></i>My Profile</a>
+      <a class="sidebar-link" href="javascript:void(0)" onclick="doLogout()"><i data-lucide="log-out"></i>Logout</a>`;
+  } else {
+    wrap.innerHTML = `
+      <a class="sidebar-link" href="#login" onclick="toggleSidebar(false)"><i data-lucide="log-in"></i>Login</a>
+      <a class="sidebar-link" href="#signup" onclick="toggleSidebar(false)"><i data-lucide="user-plus"></i>Sign Up</a>`;
+  }
+  ic();
+}
+function doLogout(){ auth.signOut().then(()=>{ toggleSidebar(false); location.hash='#home'; }); }
+
+/* ==========  PASSWORD TOGGLE  ========== */
+function togglePwd(id, btn){
+  const inp = $(id);
+  const isPwd = inp.type==='password';
+  inp.type = isPwd?'text':'password';
+  btn.innerHTML = `<i data-lucide="${isPwd?'eye-off':'eye'}"></i>`;
+  ic();
+}
+
+/* ==========  REAL-TIME DATA LISTENERS  ========== */
+db.ref('/content').on('value', snap=>{
+  const data = snap.val(); if(!data) return;
+  if(data.hero){
+    if(data.hero.badge) $('hero-badge-text').textContent = data.hero.badge;
+    if(data.hero.headline) $('hero-headline').textContent = data.hero.headline;
+    if(data.hero.subheadline) $('hero-subheadline').textContent = data.hero.subheadline;
+    if(data.hero.description) $('hero-description').textContent = data.hero.description;
+  }
+  if(data.about){
+    for(let i=1;i<=4;i++){
+      const c = data.about['card'+i]; if(!c) continue;
+      const t = document.querySelector(`[data-about="card${i}-title"]`); if(t && c.title) t.textContent = c.title;
+      const tx = document.querySelector(`[data-about="card${i}-text"]`); if(tx && c.text) tx.textContent = c.text;
+    }
+  }
+  if(data.whyUs){
+    const items = document.querySelectorAll('#why-list li span');
+    for(let i=1;i<=7;i++){ if(data.whyUs['point'+i] && items[i-1]) items[i-1].textContent = data.whyUs['point'+i]; }
+  }
+  if(data.howItWorks){
+    for(let i=1;i<=3;i++){
+      const s = data.howItWorks['step'+i]; if(!s) continue;
+      const t = document.querySelector(`[data-how="step${i}-title"]`); if(t && s.title) t.textContent = s.title;
+      const tx = document.querySelector(`[data-how="step${i}-text"]`); if(tx && s.text) tx.textContent = s.text;
+    }
+  }
+});
+
+db.ref('/settings').on('value', snap=>{
+  const s = snap.val() || {}; cachedSettings = s;
+  if(s.theme==='dark') document.body.classList.add('dark-mode'); else document.body.classList.remove('dark-mode');
+  if(s.locationText) $('contact-loc').textContent = s.locationText;
+  if(s.footerText) $('footer-copy').textContent = s.footerText;
+  if(s.brandIconURL){
+    $('brand-logo-wrap').innerHTML = `<img src="${s.brandIconURL}" style="width:100%;height:100%;object-fit:cover;border-radius:6px" alt=""/>`;
+    $('footer-logo-wrap').innerHTML = `<img src="${s.brandIconURL}" style="width:100%;height:100%;object-fit:cover;border-radius:6px" alt=""/>`;
+  } else {
+    $('brand-logo-wrap').innerHTML = `<i data-lucide="zap"></i>`;
+    $('footer-logo-wrap').innerHTML = `<i data-lucide="zap"></i>`;
+    ic();
+  }
+  if(s.bookingLink){
+    $('booking-form-wrap').style.display='none';
+    $('external-booking-wrap').style.display='block';
+    $('external-booking-link').href = s.bookingLink;
+  } else {
+    $('booking-form-wrap').style.display='block';
+    $('external-booking-wrap').style.display='none';
+  }
+  // floating chat
+  const fc = $('float-chat');
+  if(s.chatLink){ fc.href = s.chatLink; fc.style.display='flex'; } else { fc.style.display='none'; }
+  if(s.socialLinks){ cachedSocialLinks = Object.assign(cachedSocialLinks, s.socialLinks); renderSocial(); }
+
+  // social login
+  const anySocial = s.googleLoginEnabled || s.githubLoginEnabled;
+  const wrap = $('social-login-wrap');
+  if(wrap){
+    wrap.style.display = anySocial ? 'block' : 'none';
+    $('btn-google-login').style.display = s.googleLoginEnabled ? 'flex' : 'none';
+    $('btn-github-login').style.display = s.githubLoginEnabled ? 'flex' : 'none';
+  }
+  // forgot password link
+  const fp = $('forgot-pwd-link'); if(fp) fp.style.display = s.passwordResetEnabled ? 'inline' : 'none';
+
+  // Refresh dependent views
+  if(window.location.hash==='#terms') renderTerms();
+  ic();
+});
+
+function renderSocial(){
+  const wrap = $('footer-social'); if(!wrap) return;
+  const s = cachedSocialLinks;
+  const icons = { instagram:'instagram', whatsapp:'message-circle', youtube:'youtube', twitter:'twitter', linkedin:'linkedin' };
+  wrap.innerHTML = Object.keys(icons).map(k=>s[k]?`<a href="${s[k]}" target="_blank" rel="noopener" class="social-btn" aria-label="${k}"><i data-lucide="${icons[k]}"></i></a>`:'').join('');
+  ic();
+}
+
+/* ==========  CATEGORIES (real-time)  ========== */
+db.ref('/categories').on('value', snap=>{
+  cachedCategories = snap.val();
+  renderServices();
+  if(document.body.classList.contains('admin-open') && document.querySelector('.admin-nav.active[data-panel="services"]')){
+    renderAdminServices();
+  }
+});
+
+/* ==========  SERVICES (real-time)  ========== */
+db.ref('/services').on('value', snap=>{
+  cachedServices = snap.val();
+  // Auto-seed defaults the first time the DB is empty so future additions
+  // do not wipe out the visible defaults for end users.
+  if(!cachedServices && !servicesSeeded){
+    servicesSeeded = true;
+    db.ref('/services').set(DEFAULT_SERVICES).catch(()=>{});
+    db.ref('/categories').once('value').then(s=>{
+      if(!s.val()) db.ref('/categories').set(DEFAULT_CATEGORIES).catch(()=>{});
+    });
+    return; // wait for the next snapshot from the seed write
+  }
+  renderServices();
+  if(document.body.classList.contains('admin-open') && document.querySelector('.admin-nav.active[data-panel="services"]')){
+    renderAdminServices();
+  }
+});
+
+function getCategoryMeta(group){
+  const cats = cachedCategories || {};
+  if(cats[group]) return cats[group];
+  if(DEFAULT_CATEGORIES[group]) return DEFAULT_CATEGORIES[group];
+  return { label: group.charAt(0).toUpperCase()+group.slice(1), icon:"package", description:"", order:99 };
+}
+
+function renderServices(){
+  const wrap = $('services-container'); if(!wrap) return;
+  const data = cachedServices || DEFAULT_SERVICES;
+  const groupKeys = Object.keys(data).sort((a,b)=>{
+    const oa = (getCategoryMeta(a).order ?? 99), ob = (getCategoryMeta(b).order ?? 99);
+    return oa-ob;
+  });
+  if(!groupKeys.length){
+    wrap.innerHTML = '<p class="center" style="color:var(--text-muted)">No services available right now. Please check back soon.</p>';
+    return;
+  }
+  wrap.innerHTML = groupKeys.map(group=>{
+    const plans = data[group] || {};
+    const meta = getCategoryMeta(group);
+    const planKeys = Object.keys(plans).sort((a,b)=>((plans[a]||{}).order||0)-((plans[b]||{}).order||0));
+    return `
+    <div class="category-block anim-hidden">
+      <div class="service-col-head"><i data-lucide="${escapeAttr(meta.icon||'package')}"></i> ${escapeHtml(meta.label||group)}</div>
+      ${meta.description?`<p class="category-desc">${escapeHtml(meta.description)}</p>`:''}
+      <div class="services-2col" style="margin-top:0">
+        <div style="grid-column:1/-1">
+          <div class="service-cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem">
+            ${planKeys.map(key=>{
+              const s = plans[key]||{};
+              const feats = arrify(s.features);
+              return `
+              <div class="card service-card ${s.popular?'popular':''}">
+                ${s.badge?`<div class="service-badge ${s.popular?'dark':''}">${escapeHtml(s.badge)}</div>`:''}
+                <h3 class="card-title">${escapeHtml(s.name||key)}</h3>
+                <div class="service-price">
+                  ${s.priceFrom?`<span class="service-price-from">${escapeHtml(s.priceFrom)}</span>`:''}
+                  <span class="service-price-num">${escapeHtml(s.priceNum||s.price||'')}</span>
+                  ${s.priceSuffix?`<span class="service-price-from">${escapeHtml(s.priceSuffix)}</span>`:''}
+                </div>
+                <ul class="service-features">
+                  ${feats.map(f=>`<li><i data-lucide="check"></i> ${escapeHtml(f)}</li>`).join('')}
+                </ul>
+                <a href="#contact" class="btn ${s.popular?'btn-primary':'btn-secondary'}" onclick="setBookingSvc('${escapeAttr(s.name||key)}')">Get Started</a>
+              </div>`;
+            }).join('')}
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  ic();
+  setTimeout(observeAnims, 30);
+}
+function setBookingSvc(name){ const el = $('bk-service'); if(!el) return;
+  // ensure option exists
+  let opt = Array.from(el.options).find(o=>o.value===name);
+  if(!opt){ opt = new Option(name, name); el.add(opt); }
+  el.value = name;
+}
+
+/* ==========  TEAM  ========== */
+db.ref('/team').on('value', snap=>{ cachedTeam = snap.val(); renderTeam(); });
+function renderTeam(){
+  const wrap = $('team-grid'); if(!wrap) return;
+  const data = cachedTeam || DEFAULT_TEAM;
+  wrap.innerHTML = Object.keys(data).map(k=>{
+    const m = data[k]||{};
+    const skills = arrify(m.skills);
+    return `
+    <div class="team-card anim-hidden">
+      <img src="${m.photoURL || avatarURL(m.name)}" class="team-avatar" alt="${escapeAttr(m.name||'')}"/>
+      <h3 class="team-name">${escapeHtml(m.name||'')}</h3>
+      <div class="team-role">${escapeHtml(m.role||'')}</div>
+      <div class="team-divider"></div>
+      <p class="team-desc">${escapeHtml(m.description||'')}</p>
+      <div class="skill-pills">
+        ${skills.map(s=>`<span class="skill-pill">${escapeHtml(s)}</span>`).join('')}
+      </div>
+    </div>`;
+  }).join('');
+  setTimeout(observeAnims, 30);
+}
+
+/* ==========  REVIEWS  ========== */
+db.ref('/reviews').on('value', snap=>{
+  cachedReviews = snap.val();
+  renderReviews();
+  if(document.body.classList.contains('admin-open') && document.querySelector('.admin-nav.active[data-panel="reviews"]')){
+    renderAdminReviews();
+  }
+});
+
+function renderReviews(){
+  const wrap = $('reviews-grid'); if(!wrap) return;
+  const data = cachedReviews || {};
+  const list = Object.keys(data).map(k=>Object.assign({id:k}, data[k])).sort((a,b)=>new Date(b.date||0)-new Date(a.date||0));
+  if(!list.length){ wrap.innerHTML = '<p class="center" style="grid-column:1/-1;color:var(--text-muted)">No reviews yet. Be the first to leave one!</p>'; return; }
+  wrap.innerHTML = list.map(r=>`
+    <div class="review-card anim-hidden">
+      <div class="review-top">
+        <img src="${r.userPhoto || avatarURL(r.userName)}" class="review-avatar" alt=""/>
+        <div>
+          <div class="review-name">${escapeHtml(r.userName||'')}</div>
+          <div class="review-date">${fmtDate(r.date)}</div>
+        </div>
+      </div>
+      <div class="review-stars" aria-label="${Number(r.rating||0)} stars">${Array.from({length:5},(_,i)=>starSVG(i<Number(r.rating||0))).join('')}</div>
+      <p class="review-text">"${escapeHtml(r.text||'')}"</p>
+    </div>`).join('');
+  setTimeout(observeAnims, 30);
+}
+
+function renderReviewForm(){
+  const wrap = $('review-form-wrap'); if(!wrap) return;
+  if(!currentUser){
+    wrap.innerHTML = `
+      <h3 class="center" style="margin-bottom:1rem">Share your experience</h3>
+      <p class="center card-text" style="margin-bottom:1.5rem">Please login to leave a review.</p>
+      <a href="#login" class="btn btn-primary" style="width:100%;justify-content:center">Login</a>`;
+    return;
+  }
+  selectedRating = 0;
+  // Build the star selector with inline SVGs (NOT lucide <i>) so the click
+  // handlers attach to elements that won't be replaced by lucide.createIcons().
+  wrap.innerHTML = `
+    <h3 class="center" style="margin-bottom:1.5rem">Write a Review</h3>
+    <div class="star-selector" id="star-sel">
+      ${[1,2,3,4,5].map(n=>`<button type="button" class="star-btn" data-n="${n}" aria-label="${n} star">${starSVG(false)}</button>`).join('')}
+    </div>
+    <textarea class="form-input" id="review-text" maxlength="500" placeholder="How was your experience with ZEX Digital?" style="min-height:120px;resize:vertical"></textarea>
+    <div style="text-align:right;font-size:.8rem;color:var(--text-muted);margin:.25rem 0 1rem"><span id="rev-count">0</span> / 500</div>
+    <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="submitReview()">Post Review</button>
+    <div class="form-error" id="review-error"></div>
+    <div id="review-success" style="color:#16a34a;text-align:center;margin-top:.5rem;display:none">Thank you! Your review has been posted.</div>`;
+  const stars = wrap.querySelectorAll('#star-sel .star-btn');
+  function paint(level){
+    stars.forEach(x=>{
+      const n = +x.dataset.n;
+      x.classList.toggle('selected', n<=level);
+    });
+  }
+  stars.forEach(s=>{
+    s.addEventListener('mouseenter',()=>{
+      const n = +s.dataset.n;
+      stars.forEach(x=>x.classList.toggle('hovered', +x.dataset.n<=n));
+    });
+    s.addEventListener('mouseleave',()=>stars.forEach(x=>x.classList.remove('hovered')));
+    s.addEventListener('click',()=>{
+      selectedRating = +s.dataset.n;
+      paint(selectedRating);
+    });
+  });
+  $('review-text').addEventListener('input', e=>{ $('rev-count').textContent = e.target.value.length; });
+}
+function submitReview(){
+  const errEl = $('review-error'); errEl.textContent='';
+  const successEl = $('review-success'); successEl.style.display='none';
+  const text = $('review-text').value.trim();
+  if(!selectedRating){ errEl.textContent='Please select a star rating.'; return; }
+  if(!text){ errEl.textContent='Please write your review.'; return; }
+  const u = currentUser; if(!u){ errEl.textContent='You must be logged in.'; return; }
+  const key = u.uid + '_' + Date.now();
+  db.ref('/reviews/'+key).set({
+    userName: u.displayName || u.email || 'User',
+    userPhoto: u.photoURL || null,
+    rating: selectedRating, text, date: new Date().toISOString(), userId: u.uid
+  }).then(()=>{
+    successEl.style.display='block';
+    $('review-text').value=''; $('rev-count').textContent='0';
+    selectedRating=0;
+    document.querySelectorAll('#star-sel .star-btn').forEach(x=>x.classList.remove('selected'));
+    setTimeout(()=>{ successEl.style.display='none'; }, 3000);
+  }).catch(err=>{ errEl.textContent=err.message; });
+}
+
+/* ==========  PROJECTS  ========== */
+db.ref('/projects').on('value', snap=>{
+  cachedProjects = snap.val();
+  renderProjects();
+  if(document.body.classList.contains('admin-open') && document.querySelector('.admin-nav.active[data-panel="projects"]')){
+    renderAdminProjects();
+  }
+});
+function renderProjects(){
+  const wrap = $('projects-scroll'); if(!wrap) return;
+  const data = cachedProjects || {};
+  let list = Object.keys(data).map(k=>Object.assign({id:k}, data[k]));
+  list.sort((a,b)=>(a.order||0)-(b.order||0));
+  if(!list.length){
+    list = Array.from({length:6}, (_,i)=>({name:'Project '+String(i+1).padStart(2,'0'), tech:'Coming soon', imageURL:null, _placeholder:true}));
+  }
+  wrap.innerHTML = list.map(p=>`
+    <div class="project-card">
+      <div class="project-img-wrap">
+        ${p.imageURL?`<img src="${p.imageURL}" alt="${escapeAttr(p.name||'')}"/>`:`<div style="width:100%;height:100%;display:grid;place-items:center;color:var(--text-muted)"><i data-lucide="image" style="width:40px;height:40px"></i></div>`}
+      </div>
+      <div class="project-info">
+        <div class="project-name">${escapeHtml(p.name||'')}</div>
+        <div class="project-tech">${escapeHtml(p.tech||'')}</div>
+      </div>
+    </div>`).join('');
+  ic();
+}
+
+/* ==========  TERMS  ========== */
+function renderTerms(){
+  const wrap = $('terms-content'); if(!wrap) return;
+  const txt = cachedSettings.termsText || DEFAULT_TERMS;
+  // If the saved text contains HTML tags, render as HTML; otherwise treat as plain text with paragraph breaks.
+  if(/<\w+[^>]*>/.test(txt)){
+    wrap.innerHTML = txt;
+  } else {
+    wrap.innerHTML = txt.split(/\n\s*\n/).map(p=>`<p>${escapeHtml(p).replace(/\n/g,'<br>')}</p>`).join('');
+  }
+}
+
+/* ==========  AUTH ACTIONS  ========== */
+function doLogin(){
+  const e=$('login-email').value, p=$('login-pwd').value, err=$('login-error');
+  err.textContent=''; if(!e||!p){ err.textContent='Enter email and password.'; return; }
+  auth.signInWithEmailAndPassword(e,p).catch(errObj=>err.textContent=errObj.message);
+}
+function doSignup(){
+  const n=$('sig-name').value, e=$('sig-email').value, p=$('sig-pwd').value, err=$('sig-error');
+  err.textContent=''; if(!n||!e||!p){ err.textContent='All fields are required.'; return; }
+  auth.createUserWithEmailAndPassword(e,p).then(res=>{
+    res.user.updateProfile({displayName:n});
+    db.ref('/users/'+res.user.uid).set({name:n, email:e, createdAt:new Date().toISOString(), role:'user'});
+  }).catch(errObj=>err.textContent=errObj.message);
+}
+function loginWith(provider){
+  const p = provider==='google' ? new firebase.auth.GoogleAuthProvider() : new firebase.auth.GithubAuthProvider();
+  auth.signInWithPopup(p).then(res=>{
+    db.ref('/users/'+res.user.uid).update({name:res.user.displayName, email:res.user.email, lastLogin:new Date().toISOString()});
+  }).catch(err=>alert(err.message));
+}
+function doForgotPassword(){
+  const e = ($('login-email').value||'').trim();
+  if(!e){ alert('Enter your email above first.'); return; }
+  auth.sendPasswordResetEmail(e).then(()=>alert('Password reset email sent.')).catch(err=>alert(err.message));
+}
+
+/* ==========  PROFILE  ========== */
+function renderProfile(){
+  const u = currentUser; if(!u) return;
+  $('prof-img').src = u.photoURL || avatarURL(u.displayName||u.email);
+  $('prof-name').textContent = u.displayName || 'User';
+  $('prof-email').textContent = u.email;
+  $('prof-edit-name').value = u.displayName || '';
+}
+function updateProfile(){
+  const u = currentUser; if(!u) return;
+  const name = $('prof-edit-name').value.trim();
+  const file = $('prof-edit-file').files[0];
+  const finish = (url)=>{
+    const up = { displayName:name }; if(url) up.photoURL = url;
+    u.updateProfile(up).then(()=>{
+      db.ref('/users/'+u.uid).update({name, photoURL:url||u.photoURL||null});
+      $('prof-success').style.display='block'; setTimeout(()=>$('prof-success').style.display='none',3000);
+      renderProfile(); updateNavbarAuthState(u);
+    });
+  };
+  if(file) uploadToBucket('user-'+u.uid, file).then(url=>finish(url)).catch(e=>alert(e.message));
+  else finish();
+}
+
+/* ==========  BOOKING  ========== */
+function submitBooking(){
+  const n=$('bk-name').value, e=$('bk-email').value, ph=$('bk-phone').value, s=$('bk-service').value, m=$('bk-msg').value;
+  if(!n||!e||!ph){ $('bk-error').style.display='block'; return; }
+  $('bk-error').style.display='none';
+  db.ref('/bookings').push({name:n, email:e, phone:ph, service:s, message:m, date:new Date().toISOString(), status:'pending'})
+    .then(()=>{
+      $('bk-success').style.display='block';
+      $('bk-name').value=''; $('bk-email').value=''; $('bk-phone').value=''; $('bk-msg').value='';
+      setTimeout(()=>$('bk-success').style.display='none',5000);
+    });
+}
+
+/* ==========  ADMIN ACCESS  ========== */
+function openAdminModal(){ $('admin-modal').classList.add('open'); $('admin-pwd').value=''; $('admin-pwd-error').textContent=''; setTimeout(()=>$('admin-pwd').focus(),100); ic(); }
+function closeAdminModal(){ $('admin-modal').classList.remove('open'); }
+function checkAdminPwd(){
+  const v = $('admin-pwd').value;
+  if(v===ADMIN_PASSWORD){ sessionStorage.setItem('adminAccess','true'); closeAdminModal(); location.hash='#admin'; }
+  else {
+    $('admin-pwd-error').textContent='Incorrect password. Access denied.';
+    const inp = $('admin-pwd'); inp.classList.remove('shake'); void inp.offsetWidth; inp.classList.add('shake');
+    inp.value='';
+  }
+}
+const adminPwdEl = document.getElementById('admin-pwd');
+if(adminPwdEl) adminPwdEl.addEventListener('keydown', e=>{ if(e.key==='Enter') checkAdminPwd(); });
+
+function exitAdmin(){ sessionStorage.removeItem('adminAccess'); document.body.classList.remove('admin-open'); location.hash='#home'; }
+
+/* ==========  ADMIN PANELS  ========== */
+function renderAdminMain(){
+  $('admin-main').innerHTML = `
+    <div class="admin-panel active" id="admin-dashboard"></div>
+    <div class="admin-panel" id="admin-content"></div>
+    <div class="admin-panel" id="admin-services"></div>
+    <div class="admin-panel" id="admin-bookings"></div>
+    <div class="admin-panel" id="admin-team"></div>
+    <div class="admin-panel" id="admin-projects"></div>
+    <div class="admin-panel" id="admin-reviews"></div>
+    <div class="admin-panel" id="admin-users"></div>
+    <div class="admin-panel" id="admin-contact"></div>
+    <div class="admin-panel" id="admin-terms"></div>
+    <div class="admin-panel" id="admin-settings"></div>
+    <div class="admin-panel" id="admin-google"></div>`;
+  showAdminPanel('dashboard');
+}
+function showAdminPanel(name){
+  document.querySelectorAll('.admin-nav').forEach(n=>n.classList.toggle('active', n.dataset.panel===name));
+  document.querySelectorAll('.admin-panel').forEach(p=>p.classList.remove('active'));
+  const el = $('admin-'+name); if(!el) return;
+  el.classList.add('active');
+  if(name==='dashboard') renderAdminDashboard();
+  if(name==='content') renderAdminContent();
+  if(name==='services') renderAdminServices();
+  if(name==='bookings') renderAdminBookings();
+  if(name==='team') renderAdminTeam();
+  if(name==='projects') renderAdminProjects();
+  if(name==='reviews') renderAdminReviews();
+  if(name==='users') renderAdminUsers();
+  if(name==='contact') renderAdminContact();
+  if(name==='terms') renderAdminTerms();
+  if(name==='settings') renderAdminSettings();
+  if(name==='google') renderAdminGoogle();
+  if(window.innerWidth<1025) document.getElementById('admin-sidebar').classList.remove('open');
+}
+
+function renderAdminDashboard(){
+  const el = $('admin-dashboard');
+  el.innerHTML = `<h2>Dashboard</h2>
+    <div class="stat-grid" style="margin-top:1.5rem">
+      <div class="stat-card"><div class="stat-num" id="stat-users">0</div><div class="stat-label">Total Users</div></div>
+      <div class="stat-card"><div class="stat-num" id="stat-reviews">0</div><div class="stat-label">Total Reviews</div></div>
+      <div class="stat-card"><div class="stat-num" id="stat-projects">0</div><div class="stat-label">Total Projects</div></div>
+      <div class="stat-card"><div class="stat-num" id="stat-bookings">0</div><div class="stat-label">Bookings</div></div>
+    </div>`;
+  ['users','reviews','projects','bookings'].forEach(k=>{
+    db.ref('/'+k).once('value').then(s=>{ const e=document.getElementById('stat-'+k); if(e) e.textContent = s.numChildren(); }).catch(()=>{});
+  });
+}
+
+function adminSaveBtn(label, onclick){
+  return `<button class="admin-save-btn" onclick="${onclick}"><i data-lucide="check-circle" style="width:14px;height:14px"></i>${label}</button>`;
+}
+function flashSaved(btn){ const s=document.createElement('span'); s.className='admin-saved'; s.textContent='Saved!'; btn.parentNode.appendChild(s); setTimeout(()=>s.remove(),2000); }
+
+function renderAdminContent(){
+  const el = $('admin-content');
+  el.innerHTML = `<h2>Site Content Editor</h2>
+    <div class="admin-section">
+      <h3>Hero</h3>
+      ${['badge','headline','subheadline','description'].map(k=>`
+        <div class="admin-field"><label>${k}</label><input id="ac-hero-${k}" value="${escapeAttr(($('hero-'+(k==='badge'?'badge-text':k))||{textContent:''}).textContent)}"/></div>
+      `).join('')}
+      ${adminSaveBtn('Save Hero','saveAdminHero(this)')}
+    </div>
+    <div class="admin-section">
+      <h3>About Cards</h3>
+      ${[1,2,3,4].map(i=>`
+        <div class="admin-field"><label>Card ${i} Title</label><input id="ac-about-${i}-title" value="${escapeAttr((document.querySelector(`[data-about="card${i}-title"]`)||{textContent:''}).textContent)}"/></div>
+        <div class="admin-field"><label>Card ${i} Text</label><textarea id="ac-about-${i}-text">${escapeHtml((document.querySelector(`[data-about="card${i}-text"]`)||{textContent:''}).textContent)}</textarea></div>
+      `).join('')}
+      ${adminSaveBtn('Save About','saveAdminAbout(this)')}
+    </div>
+    <div class="admin-section">
+      <h3>Why ZEX (Points 1-7)</h3>
+      ${[1,2,3,4,5,6,7].map(i=>`<div class="admin-field"><label>Point ${i}</label><input id="ac-why-${i}" value="${escapeAttr((document.querySelectorAll('#why-list li span')[i-1]||{textContent:''}).textContent)}"/></div>`).join('')}
+      ${adminSaveBtn('Save Why Us','saveAdminWhy(this)')}
+    </div>
+    <div class="admin-section">
+      <h3>How It Works</h3>
+      ${[1,2,3].map(i=>`
+        <div class="admin-field"><label>Step ${i} Title</label><input id="ac-how-${i}-title" value="${escapeAttr((document.querySelector(`[data-how="step${i}-title"]`)||{textContent:''}).textContent)}"/></div>
+        <div class="admin-field"><label>Step ${i} Text</label><textarea id="ac-how-${i}-text">${escapeHtml((document.querySelector(`[data-how="step${i}-text"]`)||{textContent:''}).textContent)}</textarea></div>
+      `).join('')}
+      ${adminSaveBtn('Save Steps','saveAdminHow(this)')}
+    </div>`;
+  ic();
+}
+function saveAdminHero(btn){
+  const data={badge:$('ac-hero-badge').value,headline:$('ac-hero-headline').value,subheadline:$('ac-hero-subheadline').value,description:$('ac-hero-description').value};
+  db.ref('/content/hero').update(data).then(()=>flashSaved(btn));
+}
+function saveAdminAbout(btn){
+  const data={};
+  for(let i=1;i<=4;i++) data['card'+i]={title:$('ac-about-'+i+'-title').value,text:$('ac-about-'+i+'-text').value};
+  db.ref('/content/about').update(data).then(()=>flashSaved(btn));
+}
+function saveAdminWhy(btn){
+  const data={};
+  for(let i=1;i<=7;i++) data['point'+i]=$('ac-why-'+i).value;
+  db.ref('/content/whyUs').set(data).then(()=>flashSaved(btn));
+}
+function saveAdminHow(btn){
+  const data={};
+  for(let i=1;i<=3;i++) data['step'+i]={title:$('ac-how-'+i+'-title').value,text:$('ac-how-'+i+'-text').value};
+  db.ref('/content/howItWorks').update(data).then(()=>flashSaved(btn));
+}
+
+/* ==========  SERVICES ADMIN ========== */
+function renderAdminServices(){
+  const el = $('admin-services'); if(!el) return;
+  const data = cachedServices || DEFAULT_SERVICES;
+  const cats = cachedCategories || DEFAULT_CATEGORIES;
+
+  let html = `<h2>Services Manager</h2>
+    <p style="color:rgba(255,255,255,0.5);margin-bottom:1.5rem;font-size:.9rem">Add, edit, and organize services in real-time. Changes appear instantly on the live site.</p>
+
+    <div class="admin-section" style="border-color:rgba(34,197,94,0.3)">
+      <h3 style="color:#86efac">Create New Category</h3>
+      <div class="admin-field"><label>Category ID (lowercase, no spaces — e.g. "seo", "marketing")</label><input id="anc-id" placeholder="e.g. marketing"/></div>
+      <div class="admin-field"><label>Display Label</label><input id="anc-label" placeholder="e.g. Marketing Services"/></div>
+      <div class="admin-field"><label>Icon (Lucide icon name)</label><input id="anc-icon" placeholder="e.g. megaphone, briefcase, globe" value="package"/></div>
+      <div class="admin-field"><label>Description</label><textarea id="anc-desc" placeholder="Short description shown under the category title"></textarea></div>
+      ${adminSaveBtn('Create Category','addNewCategory(this)')}
+    </div>`;
+
+  const groupKeys = Object.keys(data).sort((a,b)=>{
+    const oa = (getCategoryMeta(a).order ?? 99), ob = (getCategoryMeta(b).order ?? 99);
+    return oa-ob;
+  });
+
+  html += groupKeys.map(group=>{
+    const plans = data[group] || {};
+    const meta = getCategoryMeta(group);
+    const planKeys = Object.keys(plans).sort((a,b)=>((plans[a]||{}).order||0)-((plans[b]||{}).order||0));
+    return `<div class="admin-section">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:.5rem">
+        <h3 style="margin:0">${escapeHtml(meta.label||group)} <span style="color:rgba(255,255,255,0.4);font-weight:400;font-size:.85rem">(${escapeHtml(group)})</span></h3>
+        <div style="display:flex;gap:.5rem">
+          <button class="admin-icon-btn" onclick="editCategory('${escapeAttr(group)}')" title="Edit Category"><i data-lucide="edit-3"></i></button>
+          <button class="admin-icon-btn" onclick="deleteCategory('${escapeAttr(group)}')" title="Delete Category"><i data-lucide="trash-2"></i></button>
+        </div>
+      </div>
+      <div id="cat-edit-${escapeAttr(group)}" style="display:none"></div>
+      ` +
+      planKeys.map(key=>{
+        const s = plans[key]||{};
+        const features = arrify(s.features);
+        return `<div class="admin-section" style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05)">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem">
+            <strong>${escapeHtml(s.name||key)}</strong>
+            <button class="admin-icon-btn" onclick="deleteService('${escapeAttr(group)}','${escapeAttr(key)}')" title="Delete service"><i data-lucide="trash-2"></i></button>
+          </div>
+          <div class="admin-field"><label>Name</label><input id="as-${escapeAttr(group)}-${escapeAttr(key)}-name" value="${escapeAttr(s.name||'')}"/></div>
+          <div class="admin-field"><label>Badge</label><input id="as-${escapeAttr(group)}-${escapeAttr(key)}-badge" value="${escapeAttr(s.badge||'')}" placeholder="e.g. Most Popular"/></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem">
+            <div class="admin-field"><label>Price prefix</label><input id="as-${escapeAttr(group)}-${escapeAttr(key)}-priceFrom" value="${escapeAttr(s.priceFrom||'')}" placeholder="Starting at"/></div>
+            <div class="admin-field"><label>Price (main)</label><input id="as-${escapeAttr(group)}-${escapeAttr(key)}-priceNum" value="${escapeAttr(s.priceNum||s.price||'')}" placeholder="₹2,000"/></div>
+            <div class="admin-field"><label>Price suffix</label><input id="as-${escapeAttr(group)}-${escapeAttr(key)}-priceSuffix" value="${escapeAttr(s.priceSuffix||'')}" placeholder="– ₹3,000"/></div>
+          </div>
+          <div class="admin-field"><label><input type="checkbox" id="as-${escapeAttr(group)}-${escapeAttr(key)}-popular" ${s.popular?'checked':''}/> Mark as popular (highlights this plan)</label></div>
+          <div class="admin-field"><label>Features (one per row)</label>
+            <div id="as-${escapeAttr(group)}-${escapeAttr(key)}-feats">${features.map(f=>`<div class="admin-feature-row"><input value="${escapeAttr(f)}"/><button class="admin-icon-btn" onclick="this.parentNode.remove()"><i data-lucide="trash-2"></i></button></div>`).join('')}</div>
+            <button class="admin-icon-btn" onclick="addFeatureRow('as-${escapeAttr(group)}-${escapeAttr(key)}-feats')" title="Add feature"><i data-lucide="plus-circle"></i></button>
+          </div>
+          ${adminSaveBtn('Save Plan',"saveService('"+group+"','"+key+"',this)")}
+        </div>`;
+      }).join('') +
+      `<div class="admin-section" style="background:rgba(34,197,94,0.05);border-color:rgba(34,197,94,0.2)">
+        <h4 style="margin-bottom:.5rem;color:#86efac">+ Add New Plan to ${escapeHtml(meta.label||group)}</h4>
+        <div class="admin-field"><label>Plan Name</label><input id="ans-${escapeAttr(group)}-name" placeholder="e.g. Pro Package"/></div>
+        <div class="admin-field"><label>Badge (optional)</label><input id="ans-${escapeAttr(group)}-badge"/></div>
+        <div class="admin-field"><label>Price</label><input id="ans-${escapeAttr(group)}-price" placeholder="₹2,000"/></div>
+        ${adminSaveBtn('Add Plan',"addNewService('"+group+"',this)")}
+      </div></div>`;
+  }).join('');
+  el.innerHTML = html;
+  ic();
+}
+
+function editCategory(group){
+  const meta = getCategoryMeta(group);
+  const wrap = document.getElementById('cat-edit-'+group); if(!wrap) return;
+  wrap.style.display = wrap.style.display==='none' ? 'block' : 'none';
+  if(wrap.style.display==='none'){ wrap.innerHTML=''; return; }
+  wrap.innerHTML = `
+    <div class="admin-section" style="background:rgba(59,130,246,0.05);border-color:rgba(59,130,246,0.2)">
+      <h4 style="color:#93c5fd;margin-bottom:.75rem">Edit Category</h4>
+      <div class="admin-field"><label>Display Label</label><input id="ec-${group}-label" value="${escapeAttr(meta.label||'')}"/></div>
+      <div class="admin-field"><label>Icon</label><input id="ec-${group}-icon" value="${escapeAttr(meta.icon||'package')}"/></div>
+      <div class="admin-field"><label>Description</label><textarea id="ec-${group}-desc">${escapeHtml(meta.description||'')}</textarea></div>
+      ${adminSaveBtn('Save Category',"saveCategory('"+group+"',this)")}
+    </div>`;
+  ic();
+}
+function saveCategory(group, btn){
+  const data = {
+    label: $('ec-'+group+'-label').value.trim() || group,
+    icon: $('ec-'+group+'-icon').value.trim() || 'package',
+    description: $('ec-'+group+'-desc').value.trim()
+  };
+  db.ref('/categories/'+group).update(data).then(()=>flashSaved(btn));
+}
+function addNewCategory(btn){
+  const id = $('anc-id').value.trim().toLowerCase().replace(/[^a-z0-9_]+/g,'_');
+  if(!id){ alert('Enter a category ID'); return; }
+  const label = $('anc-label').value.trim() || id;
+  const icon = $('anc-icon').value.trim() || 'package';
+  const desc = $('anc-desc').value.trim();
+  const order = Object.keys(cachedCategories||{}).length;
+  const updates = {};
+  updates['/categories/'+id] = { label, icon, description:desc, order };
+  updates['/services/'+id] = { starter: { name:"New Service", priceNum:"Contact us", features:[], order:0, popular:false } };
+  db.ref().update(updates).then(()=>{
+    $('anc-id').value=''; $('anc-label').value=''; $('anc-desc').value=''; $('anc-icon').value='package';
+    flashSaved(btn);
+  }).catch(e=>alert('Failed: '+e.message));
+}
+function deleteCategory(group){
+  if(!confirm(`Delete the entire "${group}" category and all its plans?`)) return;
+  const updates = {};
+  updates['/services/'+group] = null;
+  updates['/categories/'+group] = null;
+  db.ref().update(updates).catch(e=>alert(e.message));
+}
+function deleteService(group,key){
+  if(!confirm('Delete this plan?')) return;
+  db.ref('/services/'+group+'/'+key).remove().catch(e=>alert(e.message));
+}
+function addNewService(group,btn){
+  const name = $('ans-'+group+'-name').value.trim();
+  if(!name){ alert('Enter a name'); return; }
+  const key = 'svc_'+Date.now();
+  const order = Object.keys((cachedServices||{})[group]||{}).length;
+  db.ref('/services/'+group+'/'+key).set({
+    name,
+    badge: $('ans-'+group+'-badge').value.trim(),
+    priceNum: $('ans-'+group+'-price').value.trim(),
+    popular: false,
+    features: [],
+    order
+  }).then(()=>flashSaved(btn)).catch(e=>alert(e.message));
+}
+function addFeatureRow(containerId){
+  const c = document.getElementById(containerId); if(!c) return;
+  const r = document.createElement('div'); r.className='admin-feature-row';
+  r.innerHTML = `<input value=""/><button class="admin-icon-btn" onclick="this.parentNode.remove()"><i data-lucide="trash-2"></i></button>`;
+  c.appendChild(r); ic();
+}
+function saveService(group,key,btn){
+  const feats = Array.from(document.querySelectorAll('#as-'+group+'-'+key+'-feats input')).map(i=>i.value).filter(Boolean);
+  const data = {
+    name: $('as-'+group+'-'+key+'-name').value,
+    badge: $('as-'+group+'-'+key+'-badge').value,
+    priceFrom: $('as-'+group+'-'+key+'-priceFrom').value,
+    priceNum: $('as-'+group+'-'+key+'-priceNum').value,
+    priceSuffix: $('as-'+group+'-'+key+'-priceSuffix').value,
+    popular: $('as-'+group+'-'+key+'-popular').checked,
+    features: feats
+  };
+  db.ref('/services/'+group+'/'+key).update(data).then(()=>flashSaved(btn)).catch(e=>alert(e.message));
+}
+
+/* ==========  BOOKINGS ADMIN  ========== */
+function renderAdminBookings(){
+  const el = $('admin-bookings');
+  el.innerHTML = `<h2>Bookings</h2><div id="bk-list" style="margin-top:1rem">Loading…</div>`;
+  db.ref('/bookings').once('value').then(snap=>{
+    const data = snap.val()||{};
+    const list = Object.keys(data).map(k=>Object.assign({id:k},data[k])).sort((a,b)=>new Date(b.date||0)-new Date(a.date||0));
+    if(!list.length){ document.getElementById('bk-list').innerHTML = '<div style="color:#888">No bookings yet.</div>'; return; }
+    document.getElementById('bk-list').innerHTML = list.map(b=>{
+      const status = (b.status||'pending').toLowerCase();
+      return `<div class="booking-row">
+        <div style="display:flex;justify-content:space-between;margin-bottom:.5rem;flex-wrap:wrap;gap:.5rem">
+          <div><span style="font-weight:700;color:#fff">${escapeHtml(b.service||'Service')}</span> <span class="status-pill status-${status}">${escapeHtml(status)}</span></div>
+          <button class="admin-icon-btn" onclick="deleteBooking('${b.id}')" title="Delete"><i data-lucide="trash-2"></i></button>
+        </div>
+        <div style="font-size:.85rem;color:rgba(255,255,255,0.6)"><strong>${escapeHtml(b.name||'')}</strong> · ${escapeHtml(b.email||'')} · ${escapeHtml(b.phone||'')}</div>
+        <div style="font-size:.8rem;color:rgba(255,255,255,0.4)">${escapeHtml(fmtDate(b.date))}</div>
+        <div style="margin-top:.75rem;padding:.75rem;background:rgba(255,255,255,0.05);border-radius:8px;font-size:.9rem">${escapeHtml(b.message||'No message provided.')}</div>
+        <div style="margin-top:.75rem;display:flex;gap:.5rem;flex-wrap:wrap">
+          <button class="admin-save-btn" style="background:#16a34a;color:#fff" onclick="setBookingStatus('${b.id}','confirmed')"><i data-lucide="check" style="width:14px;height:14px"></i>Confirm</button>
+          <button class="admin-save-btn" style="background:#dc2626;color:#fff" onclick="setBookingStatus('${b.id}','rejected')"><i data-lucide="x" style="width:14px;height:14px"></i>Reject</button>
+          <button class="admin-save-btn" style="background:#6b7280;color:#fff" onclick="setBookingStatus('${b.id}','pending')">Pending</button>
+        </div>
+      </div>`;
+    }).join('');
+    ic();
+  });
+}
+function setBookingStatus(id,status){ db.ref('/bookings/'+id+'/status').set(status).then(renderAdminBookings); }
+function deleteBooking(id){ if(!confirm('Delete this booking?')) return; db.ref('/bookings/'+id).remove().then(renderAdminBookings); }
+
+/* ==========  TEAM ADMIN  ========== */
+function renderAdminTeam(){
+  const el = $('admin-team');
+  const data = cachedTeam || DEFAULT_TEAM;
+  el.innerHTML = `<h2>Team Manager</h2>` + Object.keys(data).map(k=>{
+    const m = data[k]||{};
+    const skills = arrify(m.skills).join(', ');
+    return `<div class="admin-section">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem"><strong>${escapeHtml(m.name||k)}</strong>
+        <button class="admin-icon-btn" onclick="deleteTeam('${escapeAttr(k)}')" title="Delete"><i data-lucide="trash-2"></i></button></div>
+      <div class="admin-field"><label>Name</label><input id="at-${escapeAttr(k)}-name" value="${escapeAttr(m.name||'')}"/></div>
+      <div class="admin-field"><label>Role</label><input id="at-${escapeAttr(k)}-role" value="${escapeAttr(m.role||'')}"/></div>
+      <div class="admin-field"><label>Description</label><textarea id="at-${escapeAttr(k)}-desc">${escapeHtml(m.description||'')}</textarea></div>
+      <div class="admin-field"><label>Skills (comma-separated)</label><input id="at-${escapeAttr(k)}-skills" value="${escapeAttr(skills)}"/></div>
+      <div class="admin-field"><label>Photo</label>
+        <div style="display:flex;align-items:center;gap:1rem"><img src="${escapeAttr(m.photoURL||avatarURL(m.name))}" style="width:48px;height:48px;border-radius:50%" alt=""/>
+        <input type="file" accept="image/*" onchange="uploadTeamPhoto('${escapeAttr(k)}',this)"/></div>
+      </div>
+      ${adminSaveBtn('Save',"saveTeam('"+k+"',this)")}
+    </div>`;
+  }).join('') + `<div class="admin-section" style="background:rgba(34,197,94,0.05);border-color:rgba(34,197,94,0.2)">
+    <h4 style="margin-bottom:.5rem;color:#86efac">+ Add Team Member</h4>
+    <div class="admin-field"><label>Name</label><input id="ant-name"/></div>
+    <div class="admin-field"><label>Role</label><input id="ant-role"/></div>
+    <div class="admin-field"><label>Description</label><textarea id="ant-desc"></textarea></div>
+    <div class="admin-field"><label>Skills (comma-separated)</label><input id="ant-skills"/></div>
+    ${adminSaveBtn('Add Member','addTeamMember(this)')}
+  </div>`;
+  ic();
+}
+function saveTeam(key,btn){
+  const data = {
+    name:$('at-'+key+'-name').value, role:$('at-'+key+'-role').value,
+    description:$('at-'+key+'-desc').value,
+    skills: $('at-'+key+'-skills').value.split(',').map(s=>s.trim()).filter(Boolean)
+  };
+  db.ref('/team/'+key).update(data).then(()=>flashSaved(btn));
+}
+function deleteTeam(key){ if(!confirm('Remove this member?')) return; db.ref('/team/'+key).remove().then(renderAdminTeam); }
+function addTeamMember(btn){
+  const name = $('ant-name').value.trim(); if(!name){ alert('Enter a name'); return; }
+  const key = 'm_'+Date.now();
+  db.ref('/team/'+key).set({
+    name, role:$('ant-role').value, description:$('ant-desc').value,
+    skills: $('ant-skills').value.split(',').map(s=>s.trim()).filter(Boolean), photoURL:null
+  }).then(()=>{ flashSaved(btn); renderAdminTeam(); });
+}
+function uploadTeamPhoto(key, input){
+  const f = input.files && input.files[0]; if(!f) return;
+  uploadToBucket('team-'+key, f).then(url=>db.ref('/team/'+key+'/photoURL').set(url))
+    .then(()=>renderAdminTeam()).catch(e=>alert('Error: '+e.message));
+}
+
+/* ==========  PROJECTS ADMIN  ========== */
+function renderAdminProjects(){
+  const el = $('admin-projects');
+  const data = cachedProjects || {};
+  const list = Object.keys(data).map(k=>Object.assign({id:k},data[k])).sort((a,b)=>(a.order||0)-(b.order||0));
+  el.innerHTML = `<h2>Projects Manager</h2>
+    <div class="admin-section">
+      <h3>Add New Project</h3>
+      <div class="admin-field"><label>Project Name</label><input id="ap-name"/></div>
+      <div class="admin-field"><label>Tech Used</label><input id="ap-tech"/></div>
+      <div class="admin-field"><label>Image</label><input type="file" id="ap-img" accept="image/*"/></div>
+      ${adminSaveBtn('Add Project','addProject(this)')}
+    </div>
+    ${list.map(p=>`<div class="admin-section">
+      <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
+        ${p.imageURL?`<img src="${escapeAttr(p.imageURL)}" style="width:64px;height:64px;border-radius:8px;object-fit:cover" alt=""/>`:`<div style="width:64px;height:64px;border-radius:8px;background:rgba(255,255,255,0.1)"></div>`}
+        <div style="flex:1;min-width:140px"><div style="font-weight:600">${escapeHtml(p.name||'')}</div><div style="font-size:.85rem;color:rgba(255,255,255,0.4)">${escapeHtml(p.tech||'')}</div></div>
+        <button class="admin-icon-btn" onclick="moveProject('${escapeAttr(p.id)}',-1)" title="Up"><i data-lucide="chevron-up"></i></button>
+        <button class="admin-icon-btn" onclick="moveProject('${escapeAttr(p.id)}',1)" title="Down"><i data-lucide="chevron-down"></i></button>
+        <button class="admin-icon-btn" onclick="deleteProject('${escapeAttr(p.id)}')"><i data-lucide="trash-2"></i></button>
+      </div>
+    </div>`).join('')}`;
+  ic();
+}
+function addProject(btn){
+  const name = $('ap-name').value.trim(), tech = $('ap-tech').value.trim();
+  const file = $('ap-img').files[0];
+  if(!name){ alert('Enter a name'); return; }
+  const id = 'p_'+Date.now();
+  const order = Object.keys(cachedProjects||{}).length;
+  const finish = (imageURL)=> db.ref('/projects/'+id).set({name,tech,imageURL:imageURL||null,order}).then(()=>{ flashSaved(btn); $('ap-name').value=''; $('ap-tech').value=''; $('ap-img').value=''; });
+  if(file){
+    uploadToBucket('project-'+id, file).then(url=>finish(url)).catch(e=>alert('Upload failed: '+e.message));
+  } else finish(null);
+}
+function deleteProject(id){ if(!confirm('Delete this project?')) return; db.ref('/projects/'+id).remove(); }
+function moveProject(id, dir){
+  const data = cachedProjects||{};
+  const list = Object.keys(data).map(k=>Object.assign({id:k},data[k])).sort((a,b)=>(a.order||0)-(b.order||0));
+  const idx = list.findIndex(x=>x.id===id); if(idx<0) return;
+  const swap = idx+dir; if(swap<0||swap>=list.length) return;
+  const updates = {};
+  updates['/projects/'+list[idx].id+'/order'] = swap;
+  updates['/projects/'+list[swap].id+'/order'] = idx;
+  db.ref().update(updates);
+}
+
+/* ==========  REVIEWS ADMIN  ========== */
+function renderAdminReviews(){
+  const el = $('admin-reviews');
+  const data = cachedReviews || {};
+  const list = Object.keys(data).map(k=>Object.assign({id:k},data[k])).sort((a,b)=>new Date(b.date||0)-new Date(a.date||0));
+  el.innerHTML = `<h2>Reviews Manager</h2>
+    <div style="overflow-x:auto"><table class="admin-table"><thead><tr><th>User</th><th>Rating</th><th>Date</th><th>Review</th><th></th></tr></thead><tbody>
+    ${list.map(r=>`<tr>
+      <td>${escapeHtml(r.userName||'')}</td>
+      <td>${'★'.repeat(Number(r.rating||0))}${'☆'.repeat(5-Number(r.rating||0))}</td>
+      <td>${escapeHtml(fmtDate(r.date))}</td>
+      <td>${escapeHtml((r.text||'').slice(0,80))}${(r.text||'').length>80?'…':''}</td>
+      <td><button class="admin-icon-btn" onclick="deleteReview('${escapeAttr(r.id)}')"><i data-lucide="trash-2"></i></button></td>
+    </tr>`).join('')||'<tr><td colspan="5" style="text-align:center;color:rgba(255,255,255,0.4)">No reviews yet</td></tr>'}
+    </tbody></table></div>`;
+  ic();
+}
+function deleteReview(id){ if(!confirm('Delete this review?')) return; db.ref('/reviews/'+id).remove(); }
+
+/* ==========  USERS ADMIN  ========== */
+function renderAdminUsers(){
+  const el = $('admin-users');
+  el.innerHTML = `<h2>Users</h2><div style="color:rgba(255,255,255,0.4);font-size:.85rem;margin-bottom:1rem">To delete users permanently, use Firebase Console.</div><div id="users-table-wrap">Loading…</div>`;
+  db.ref('/users').once('value').then(snap=>{
+    const data = snap.val()||{};
+    const list = Object.keys(data).map(k=>Object.assign({uid:k},data[k]));
+    document.getElementById('users-table-wrap').innerHTML = `<div style="overflow-x:auto"><table class="admin-table"><thead><tr><th>Name</th><th>Email</th><th>Joined</th><th>Role</th></tr></thead><tbody>
+      ${list.map(u=>`<tr><td>${escapeHtml(u.name||'')}</td><td>${escapeHtml(u.email||'')}</td><td>${escapeHtml(fmtDate(u.createdAt))}</td><td>${escapeHtml(u.role||'user')}</td></tr>`).join('')||'<tr><td colspan="4" style="text-align:center;color:rgba(255,255,255,0.4)">No users yet</td></tr>'}
+    </tbody></table></div>`;
+  });
+}
+
+/* ==========  CONTACT ADMIN  ========== */
+function renderAdminContact(){
+  const el = $('admin-contact');
+  const s = cachedSocialLinks;
+  el.innerHTML = `<h2>Contact &amp; Social</h2>
+    <div class="admin-section">
+      <div class="admin-field"><label>Location Text</label><input id="ac-loc" value="${escapeAttr(cachedSettings.locationText||'Kalka, Himachal Pradesh, India')}"/></div>
+      ${['instagram','whatsapp','youtube','twitter','linkedin'].map(k=>`<div class="admin-field"><label>${k} URL</label><input id="ac-soc-${k}" value="${escapeAttr(s[k]||'')}"/></div>`).join('')}
+      ${adminSaveBtn('Save All','saveContact(this)')}
+    </div>`;
+  ic();
+}
+function saveContact(btn){
+  const updates = { locationText: $('ac-loc').value, socialLinks:{} };
+  ['instagram','whatsapp','youtube','twitter','linkedin'].forEach(k=>{ updates.socialLinks[k] = $('ac-soc-'+k).value; });
+  db.ref('/settings').update(updates).then(()=>flashSaved(btn));
+}
+
+/* ==========  TERMS ADMIN  ========== */
+function renderAdminTerms(){
+  const el = $('admin-terms');
+  const s = cachedSettings;
+  el.innerHTML = `<h2>Terms &amp; Conditions Page</h2>
+    <p style="color:rgba(255,255,255,0.5);margin-bottom:1.5rem;font-size:.9rem">Edit your Terms &amp; Conditions page below. Changes appear immediately on the live site at the Terms page. You can use plain text (paragraphs separated by blank lines) or HTML for rich formatting.</p>
+    <div class="admin-section">
+      <div class="admin-field"><label>Terms &amp; Conditions Content</label><textarea id="aterms-text" style="min-height:400px;font-family:inherit;line-height:1.6">${escapeHtml(s.termsText||DEFAULT_TERMS)}</textarea></div>
+      <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+        ${adminSaveBtn('Save Terms','saveTermsPage(this)')}
+        <button class="admin-save-btn" style="background:rgba(255,255,255,0.1);color:#fff" onclick="resetTermsPage()"><i data-lucide="rotate-ccw" style="width:14px;height:14px"></i>Reset to Default</button>
+        <a class="admin-save-btn" style="background:rgba(255,255,255,0.1);color:#fff;text-decoration:none" href="javascript:void(0)" onclick="exitAdmin();setTimeout(()=>location.hash='#terms',100)"><i data-lucide="external-link" style="width:14px;height:14px"></i>Preview Live Page</a>
+      </div>
+    </div>`;
+  ic();
+}
+function saveTermsPage(btn){
+  const txt = $('aterms-text').value;
+  db.ref('/settings/termsText').set(txt).then(()=>flashSaved(btn)).catch(e=>alert(e.message));
+}
+function resetTermsPage(){
+  if(!confirm('Reset Terms & Conditions to the default text?')) return;
+  $('aterms-text').value = DEFAULT_TERMS;
+}
+
+/* ==========  SETTINGS ADMIN  ========== */
+function renderAdminSettings(){
+  const el = $('admin-settings');
+  const s = cachedSettings;
+  el.innerHTML = `<h2>Settings</h2>
+    <div class="admin-section">
+      <h4 style="margin-bottom:.75rem">Brand Icon (Navbar Logo)</h4>
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.5rem;flex-wrap:wrap">
+        ${s.brandIconURL ? `<img src="${escapeAttr(s.brandIconURL)}" style="width:48px;height:48px;border-radius:8px;object-fit:cover" alt=""/>` : `<div style="width:48px;height:48px;border-radius:8px;background:rgba(255,255,255,0.1);display:grid;place-items:center"><i data-lucide="zap"></i></div>`}
+        <input type="file" accept="image/*" onchange="uploadBrandIcon(this)"/>
+        ${s.brandIconURL ? `<button class="admin-icon-btn" onclick="clearBrandIcon()" title="Remove"><i data-lucide="trash-2"></i></button>` : ''}
+      </div>
+      <div style="color:rgba(255,255,255,0.4);font-size:.85rem">Replaces the lightning icon next to the brand name.</div>
+    </div>
+    <div class="admin-section">
+      <div class="admin-field"><label>Book Now Link (external URL)</label><input id="as-booklink" value="${escapeAttr(s.bookingLink||'')}" placeholder="Leave empty to use the built-in form"/></div>
+      <div class="admin-field"><label>Floating Chat Link (WhatsApp/Telegram/etc.)</label><input id="as-chatlink" value="${escapeAttr(s.chatLink||'')}" placeholder="https://wa.me/91XXXXXXXXXX"/></div>
+      <div class="admin-field"><label>Footer Text</label><input id="as-footer" value="${escapeAttr(s.footerText||'© 2025 ZEX Digital. All Rights Reserved.')}"/></div>
+      <div class="admin-field"><label>Theme</label>
+        <div style="display:flex;gap:1.5rem"><label style="display:flex;align-items:center;gap:.4rem"><input type="radio" name="theme" value="light" ${s.theme!=='dark'?'checked':''}/>Light</label>
+        <label style="display:flex;align-items:center;gap:.4rem"><input type="radio" name="theme" value="dark" ${s.theme==='dark'?'checked':''}/>Dark</label></div>
+      </div>
+      ${adminSaveBtn('Save Settings','saveSettings(this)')}
+    </div>`;
+  ic();
+}
+function saveSettings(btn){
+  const theme = (document.querySelector('input[name=theme]:checked')||{value:'light'}).value;
+  const updates = {
+    footerText: $('as-footer').value, theme,
+    bookingLink: $('as-booklink').value.trim(), chatLink: $('as-chatlink').value.trim()
+  };
+  db.ref('/settings').update(updates).then(()=>flashSaved(btn));
+}
+function uploadBrandIcon(input){
+  const f = input.files && input.files[0]; if(!f) return;
+  uploadToBucket('brand', f).then(url=>db.ref('/settings/brandIconURL').set(url))
+    .then(()=>renderAdminSettings()).catch(e=>alert('Upload failed: '+e.message));
+}
+function clearBrandIcon(){ db.ref('/settings/brandIconURL').remove().then(renderAdminSettings); }
+
+/* ==========  GOOGLE / LOGIN METHODS ADMIN  ========== */
+function renderAdminGoogle(){
+  const el = $('admin-google');
+  const s = cachedSettings;
+  const row = (label, desc, key, on)=>`
+    <div class="admin-section" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+      <div>
+        <div style="font-weight:600;font-size:1rem">${label}</div>
+        <div style="color:rgba(255,255,255,0.4);font-size:.85rem;margin-top:.25rem">${desc}</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:.6rem;flex-shrink:0">
+        <div class="toggle-switch ${on?'on':''}" onclick="toggleLoginSetting('${key}')"></div>
+        <span style="font-size:.85rem;color:${on?'#16a34a':'rgba(255,255,255,0.4)'};min-width:60px">${on?'Enabled':'Disabled'}</span>
+      </div>
+    </div>`;
+  el.innerHTML = `<h2>Login Methods</h2>
+    <p style="color:rgba(255,255,255,0.6);margin-bottom:1rem">Control how users can sign in to your site.</p>
+    ${row('Google Sign-In', 'Allow users to log in with their Google account.', 'googleLoginEnabled', !!s.googleLoginEnabled)}
+    ${row('GitHub Sign-In', 'Allow users to log in with their GitHub account.', 'githubLoginEnabled', !!s.githubLoginEnabled)}
+    ${row('Password Reset', 'Show "Forgot password?" link so users can reset via email.', 'passwordResetEnabled', !!s.passwordResetEnabled)}
+    <div style="margin-top:1rem;padding:.85rem 1rem;background:rgba(255,165,0,0.1);border:1px solid rgba(255,165,0,0.2);border-radius:8px;color:#ff9d00;font-size:.85rem">
+      <strong>Note:</strong> Google and GitHub providers must also be enabled in your Firebase Console under Authentication → Sign-in method.
+    </div>`;
+  ic();
+}
+function toggleLoginSetting(key){
+  const next = !cachedSettings[key];
+  db.ref('/settings/'+key).set(next).then(()=>renderAdminGoogle());
+}
+
+/* ==========  INIT  ========== */
+window.addEventListener('scroll', ()=>{
+  const nb = document.getElementById('navbar'); if(!nb) return;
+  nb.style.boxShadow = window.scrollY>20 ? '0 8px 32px rgba(0,0,0,.12)' : '0 4px 24px rgba(0,0,0,.06)';
+});
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  ic();
+  renderSocial();
+  router();
+});
+
+// initial route immediately too
+router();
+ic();
+</script>
+</body>
+</html>
